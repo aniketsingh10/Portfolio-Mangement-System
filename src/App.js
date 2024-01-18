@@ -11,6 +11,7 @@ import { Signup } from "./screens/Loginscreen/Signup";
 import { Dashboard } from "./screens/Dashboard/Dashboard";
 import { News } from "./screens/News/News";
 import { Portfolio } from "./screens/Portfolio/Portfolio";
+import { Analysis } from "./screens/Analysis/Analysis";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/news" element={<News />} />
+          <Route path="/analysis" element={<Analysis />} />
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </Router>
