@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/Header/Header";
 import { AnalysisDashboard } from "./AnalysisDashboard";
-
+var data = require("./list.json");
 export function Analysis() {
-  const handleSubmit = (e) => {
-    alert("Search button pressed");
+  const [value, setValue] = useState("");
+  const onChange = (event) => {
+    event.preventDefault();
+    setValue(event.target.value);
   };
+
+  const onSearch = (searchTerm) => {
+    //api
+    setValue(searchTerm);
+    console.log("search", searchTerm);
+  };
+
   return (
     <div>
       <Header />
-        
+
       <div className="text-black">
         <div className="max-w-[800px]  w-full  mx-auto text-center flex flex-col justify-center pt-10">
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
@@ -22,7 +31,7 @@ export function Analysis() {
       </div>
 
       <div className="p-10 max-w-[1000px] mx-auto ">
-        <form onSubmit={handleSubmit}>
+        <div>
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -50,21 +59,47 @@ export function Analysis() {
             <input
               type="search"
               id="default-search"
+              value={value}
+              onChange={onChange}
               className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
               placeholder="Enter the Company Name"
               required
             />
             <button
               type="submit"
+              onClick={() => onSearch(value)}
               className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Search
             </button>
           </div>
-        </form>
+        </div>
+        <div>
+          {data
+            .filter((item) => {
+              const searchTerm = value.toLowerCase();
+              const fullName = item.company_name.toLowerCase();
+
+              return (
+                searchTerm &&
+                fullName.startsWith(searchTerm) &&
+                fullName !== searchTerm
+              );
+            })
+            .slice(0, 5)
+            .map((item) => (
+              <div
+                onClick={() => onSearch(item.company_name)}
+                key={item.company_name}
+                className="flex px-2 py-3 bg-gray-300 m-0.5 pl-8 rounded-md"
+              >
+                {item.company_name}
+              </div>
+            ))}
+        </div>
       </div>
 
-      <AnalysisDashboard />
+      <AnalysisDashboard searchTerm={value} />
     </div>
   );
 }
