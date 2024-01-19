@@ -6,10 +6,12 @@ import Cards from "./Cards";
 import Newsletter from "./Newsletters";
 import { Footer } from "../../components/Footer/Footer";
 
+
 function Home() {
   return (
     <>
       <Header />
+      
       <Hero />
       <Analytics />
       <Cards />
