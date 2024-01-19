@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import CheckConnection from "../../components/Connection/Offline";
 import { Header } from "../../components/Header/Header";
 import { AnalysisDashboard } from "./AnalysisDashboard";
-var data = require("./list.json");
+var data = require("../../assets/data/list.json");
 export function Analysis() {
   const [value, setValue] = useState("");
   const onChange = (event) => {
@@ -18,7 +19,7 @@ export function Analysis() {
   return (
     <div>
       <Header />
-
+      <CheckConnection>
       <div className="text-black">
         <div className="max-w-[800px]  w-full  mx-auto text-center flex flex-col justify-center pt-10">
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
@@ -100,6 +101,7 @@ export function Analysis() {
       </div>
 
       <AnalysisDashboard searchTerm={value} />
+      </CheckConnection>
     </div>
   );
 }

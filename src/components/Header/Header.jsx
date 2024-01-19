@@ -8,17 +8,17 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
- 
+
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
+      () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
- 
+
   const navList = (
     <ul className="mt-2  flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
       <Typography
@@ -59,9 +59,10 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <a href="#" className="flex items-center">
+        {/* <a href="#" className="flex items-center">
           About Us
-        </a>
+        </a> */}
+        <Link to="/">About Us</Link>
       </Typography>
       <Typography
         as="li"
@@ -69,20 +70,19 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <a href="#" className="flex items-center">
+        {/* <a href="#" className="flex items-center">
           Github
-        </a>
+        </a> */}
+        <Link to="/">Github</Link>
       </Typography>
     </ul>
   );
- 
+
   return (
     <div>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 border">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
-            as="a"
-            href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
             <Link to="/">Portfolio Management System</Link>
@@ -95,9 +95,7 @@ export function Header() {
                 size="sm"
                 className="hidden lg:inline-block"
               >
-               
-                    <Link to="/login">Log In</Link>
-                    
+                <Link to="/login">Log In</Link>
               </Button>
               <Button
                 variant="gradient"

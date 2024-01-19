@@ -1,5 +1,5 @@
 import React from 'react';
-import Laptop from '../../assets/laptop.jpg';
+import Laptop from '../../assets/images/laptop.jpg';
 
 const Cards = () => {
   return (
