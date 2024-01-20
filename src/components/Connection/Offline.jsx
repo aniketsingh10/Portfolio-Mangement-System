@@ -12,7 +12,7 @@ const CheckConnection = (props) => {
             <div className="text-black">
               <div className="max-w-[800px] w-full h-[80vh] mx-auto text-center flex flex-col justify-center">
                 
-              <img src={Img} height={100} width={100} className="mx-auto"/>
+              <img src={Img} height={100} width={100} alt={""} className="mx-auto"/>
                 <div className="flex justify-center items-center">
                
                   <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
