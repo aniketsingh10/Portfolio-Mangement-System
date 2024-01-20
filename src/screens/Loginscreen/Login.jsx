@@ -5,7 +5,7 @@ import Details from "./Details";
 
 export function Login() {
   return (
-    <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto">
+    <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
       <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
         <h1 className="flex w-[80%] mx-auto text-3xl font-semibold">LOG IN</h1>
         <p className="font-medium w-[80%] mx-auto text-lg text-gray-500 mt-2">

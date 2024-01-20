@@ -4,13 +4,13 @@ import Img from "../../assets/images/pms.webp";
 const Details = () => {
   return (
     <div className="text-black flex justify-center items-center h-screen bg-white">
-      <div className="max-w-[98%] w-full mx-auto  text-center">
+      <div className="max-w-[98%] w-full mx-auto  text-center py-auto">
         <picture>
           <source srcSet={Img} type="image/webp" />
           <img
             src={Img}
-            width={500}
-            height={500}
+            width={600}
+            height={600}
             alt="Description of the image"
             className="mx-auto" // Center the image horizontally
           />
