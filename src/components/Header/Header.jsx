@@ -82,10 +82,10 @@ export function Header() {
     <div>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 border">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            className="mr-4 cursor-pointer py-1.5 font-medium"
-          >
-            <Link to="/">Portfolio Management System</Link>
+          <Typography className="mr-4 cursor-pointer py-1.5 font-medium  ">
+            <Link to="/" className="text-bold">
+              Portfolio Management System
+            </Link>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -98,9 +98,11 @@ export function Header() {
                 <Link to="/login">Log In</Link>
               </Button>
               <Button
-                variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block"
+                style={{
+                  backgroundColor: "rgb(59 130 246)",
+                }}
               >
                 <Link to="/signup">Sign up</Link>
               </Button>
@@ -144,7 +146,7 @@ export function Header() {
             </IconButton>
           </div>
         </div>
-        <Collapse  open={openNav}>
+        <Collapse open={openNav}>
           {navList}
           <div className="flex items-center gap-x-1">
             <Button fullWidth variant="text" size="sm" className="">

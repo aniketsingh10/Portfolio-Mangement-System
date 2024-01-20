@@ -6,7 +6,15 @@ export function AnalysisDashboard({ searchTerm }) {
     <div className="mb-20">
       <div className="max-w-[80%]  w-full  mx-auto text-center flex flex-col justify-center pt-10 ">
         <p className="md:text-2xl text-xl font-bold pb-4">
-          Company :- {searchTerm || "INFY"}
+          Company :-{" "}
+          <span
+            className="capitalize"
+            style={{
+              color: "rgb(59 130 246)",
+            }}
+          >
+            {searchTerm || "INFY"}
+          </span>
         </p>
 
         <div className="flex flex-col lg:flex-row">
