@@ -4,7 +4,7 @@ import Img from "../../assets/images/pms.webp";
 const Details = () => {
   return (
     <div className="text-black flex justify-center items-center h-screen bg-white">
-      <div className="max-w-[40%] w-full mx-auto text-center">
+      <div className="max-w-[98%] w-full mx-auto  text-center">
         <picture>
           <source srcSet={Img} type="image/webp" />
           <img
@@ -16,7 +16,7 @@ const Details = () => {
           />
         </picture>
         <div className="flex flex-col items-center">
-          <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
+          <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4 ">
             Grow with PMS
           </p>
           <p className="md:text-2xl text-xl font-bold text-gray-500">
