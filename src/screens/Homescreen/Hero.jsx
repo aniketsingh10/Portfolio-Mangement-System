@@ -4,15 +4,15 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 const Hero = () => {
   const [text] = useTypewriter({
     /* Config */
-    words: ["SASS", "BTC", "BTB"],
+    words: ["STOCKS", "INVESTMENTS", "PORTFOLIOS"],
     loop: {},
     typeSpeed: 120,
   });
   return (
     <div className="text-black">
-      <div className="max-w-[800px] w-full h-[80vh] mx-auto text-center flex flex-col justify-center">
+      <div className="max-w-[1000px] w-full h-[80vh] mx-auto text-center flex flex-col justify-center">
         <p className="text-primary font-bold p-2">
-          GROWING WITH FINANCIAL KNOWLEDGE
+          GROWING WITH FINANCIAL UNDERSTANDING
         </p>
         <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 ">
           Grow with PMS
@@ -44,10 +44,11 @@ const Hero = () => {
           /> */}
         </div>
         <p className="md:text-2xl text-xl font-bold text-gray-500 ">
-          Monitor your data analytics to increase revenue for BTB, BTC, & SASS
-          platforms.
+          Optimize revenue growth for STOCKS, INVESTMENTS, and PORTFOLIOS
+          platforms by leveraging advanced data analytics and monitoring
+          capabilities.
         </p>
-        <button className="bg-primary w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white">
+        <button className="bg-primary w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white hover:scale-105 ease-in-out duration-300">
           Get Started
         </button>
       </div>
