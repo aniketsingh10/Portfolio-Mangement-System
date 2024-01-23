@@ -73,7 +73,12 @@ export function Header() {
         {/* <a href="#" className="flex items-center">
           Github
         </a> */}
-        <Link to="/">Github</Link>
+        <Link
+          to="https://github.com/aniketsingh10/Portfolio-Mangement-System"
+          target="_blank"
+        >
+          Github
+        </Link>
       </Typography>
     </ul>
   );

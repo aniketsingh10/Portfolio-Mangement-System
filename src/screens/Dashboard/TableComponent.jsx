@@ -15,45 +15,45 @@ import {
 const data = [
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "2432",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "2451",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "2290",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "2010",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "2340",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department of Economic ",
-    status: "active",
+    Role: "20",
+    departement: "2618",
+    status: "15.36 %",
   },
   {
     name: "Reliance Ltd.",
-    Role: "Federal Councillor",
-    departement: "The Federal Department ",
-    status: "active",
+    Role: "20",
+    departement: "1200",
+    status: "15.36 %",
   },
 ];
 
@@ -66,7 +66,7 @@ const TableComponent = () => {
           <TableRow>
             <TableHeaderCell>Name</TableHeaderCell>
             <TableHeaderCell>Shares</TableHeaderCell>
-            <TableHeaderCell>Department</TableHeaderCell>
+            <TableHeaderCell>Average Price</TableHeaderCell>
             <TableHeaderCell>Profit/Loss</TableHeaderCell>
           </TableRow>
         </TableHead>

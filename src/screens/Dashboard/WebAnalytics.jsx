@@ -4,23 +4,23 @@ import { BarList, Card, Title, Bold, Flex, Text } from "@tremor/react";
 const data = [
   {
     name: "Reliance",
-    value: 456,
+    value: 45,
   },
   {
-    name: "Google",
-    value: 351,
+    name: "Reliance",
+    value: 35,
   },
   {
-    name: "GitHub",
-    value: 271,
+    name: "Reliance",
+    value: 27,
   },
   {
-    name: "Reddit",
-    value: 191,
+    name: "Reliance",
+    value: 19,
   },
   {
-    name: "Youtube",
-    value: 91,
+    name: "Reliance",
+    value: 9,
   },
 ];
 
