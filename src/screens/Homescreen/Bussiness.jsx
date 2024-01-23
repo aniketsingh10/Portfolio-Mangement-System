@@ -14,8 +14,7 @@ const Bussiness = () => {
                 What We Offer
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+              We provide comprehensive oversight, strategic alignment, and real-time analytics to optimize the performance and health of your project portfolio.
               </p>
             </div>
           </div>
@@ -23,8 +22,8 @@ const Bussiness = () => {
 
         <div className="-mx-4 flex flex-wrap">
           <ServiceCard
-            title="Refreshing Design"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            title="Performance Tracking"
+            details="Track the performance of investments of the portfolio"
             icon={
               <svg
                 width="36"
@@ -41,8 +40,8 @@ const Bussiness = () => {
             }
           />
           <ServiceCard
-            title="Based on Tailwind CSS"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            title="Risk Management"
+            details="Identify and assess risks and manage risks effectively"
             icon={
               <svg
                 width="36"
@@ -61,8 +60,8 @@ const Bussiness = () => {
             }
           />
           <ServiceCard
-            title="100+ Components"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            title="Health Monitoring"
+            details="Track and manage the financial aspects of the portfolio"
             icon={
               <svg
                 width="36"
@@ -91,8 +90,8 @@ const Bussiness = () => {
             }
           />
           <ServiceCard
-            title="Speed Optimized"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            title="Portfolio Optimization"
+            details="Continuously assess the portfolio to identify opportunities for optimization."
             icon={
               <svg
                 width="36"
@@ -113,8 +112,8 @@ const Bussiness = () => {
             }
           />
           <ServiceCard
-            title="Fully Customizable"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            title="Portfolio Diversification"
+            details="Diversification of portfolio based on several parameters"
             icon={
               <svg
                 width="36"
@@ -132,7 +131,7 @@ const Bussiness = () => {
           />
           <ServiceCard
             title="Regular Updates"
-            details="We dejoy working with discerning clients, people for whom qualuty, service, integrity & aesthetics."
+            details="Give regular updates of whats happening in the market"
             icon={
               <svg
                 width="36"
