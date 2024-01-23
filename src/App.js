@@ -1,17 +1,13 @@
-
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import {Login}  from "./screens/Loginscreen/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from "./screens/Loginscreen/Login";
 import Home from "./screens/Homescreen/Home";
-import {Signup}  from "./screens/Loginscreen/Signup";
+import { Signup } from "./screens/Loginscreen/Signup";
 import { Dashboard } from "./screens/Dashboard/Dashboard";
 import { News } from "./screens/News/News";
 import { Portfolio } from "./screens/Portfolio/Portfolio";
 import { Analysis } from "./screens/Analysis/Analysis";
+import { Indices } from "./screens/Indices/Indices";
 
 function App() {
   return (
@@ -24,10 +20,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/news" element={<News />} />
           <Route path="/analysis" element={<Analysis />} />
+          <Route path="/indices" element={<Indices />} />
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
       </Router>
-     
     </>
   );
 }

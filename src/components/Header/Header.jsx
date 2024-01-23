@@ -51,6 +51,14 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
+        <Link to="/indices">Indices</Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
+      >
         <Link to="/news">News</Link>
       </Typography>
       <Typography

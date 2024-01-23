@@ -1,0 +1,67 @@
+{
+  "indices": [
+    {
+      "name": "Nifty 50",
+      "open": 21238.8,
+      "high": 21750.25,
+      "low": 21192.6,
+      "percentChange": -1.54,
+      "change": -333.0,
+      "time": "15:32:19"
+    },
+    {
+      "name": "BSE Sensex",
+      "open": 70370.55,
+      "high": 72039.2,
+      "low": 70234.55,
+      "percentChange": -1.47,
+      "change": -1053.1,
+      "time": "18:04:59"
+    },
+    {
+      "name": "Nifty Bank",
+      "open": 45015.05,
+      "high": 46580.3,
+      "low": 44886.1,
+      "percentChange": -2.26,
+      "change": -1043.15,
+      "time": "15:32:19"
+    },
+    {
+      "name": "India VIX",
+      "open": 14.8525,
+      "high": 15.405,
+      "low": 12.195,
+      "percentChange": 7.61,
+      "change": 1.05,
+      "time": "15:33:09"
+    },
+    {
+      "name": "Dow Jones",
+      "open": 38001.81,
+      "high": 38109.2,
+      "low": 37911.61,
+      "percentChange": 0.36,
+      "change": 138.01,
+      "time": "03:34:55"
+    },
+    {
+      "name": "S&P 500",
+      "open": 4850.43,
+      "high": 4868.41,
+      "low": 4844.05,
+      "percentChange": 0.22,
+      "change": 10.62,
+      "time": "03:34:55"
+    },
+    {
+      "name": "Nasdaq",
+      "open": 15360.29,
+      "high": 15438.85,
+      "low": 15333.63,
+      "percentChange": 0.32,
+      "change": 49.32,
+      "time": "03:45:59"
+    }
+  ]
+}
