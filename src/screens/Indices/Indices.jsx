@@ -14,6 +14,7 @@ import {
 import { Header } from "../../components/Header/Header";
 
 var data = require("../../assets/data/indices.json");
+var ipodata = require("../../assets/data/ipos.json");
 
 export function Indices() {
   console.log(data);
@@ -21,7 +22,7 @@ export function Indices() {
     <div>
       <Header />
       <Card className="mt-4 shadow-lg">
-        <Title>List of Major Global Indices</Title>
+        <Title className="mx-4">List of Major Global Indices</Title>
         <Table className="mt-5">
           <TableHead>
             <TableRow>
@@ -75,6 +76,50 @@ export function Indices() {
                 </TableCell>
                 <TableCell>
                   <Text>{item.time}</Text>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
+
+      <Card className="mt-4 shadow-lg w-1/2">
+        <Title className="mx-4">List of Latest IPOs and GMP</Title>
+        <Table className="mt-5">
+          <TableHead>
+            <TableRow>
+              <TableHeaderCell>IPO Name</TableHeaderCell>
+              <TableHeaderCell>Date</TableHeaderCell>
+              <TableHeaderCell>GMP</TableHeaderCell>
+              <TableHeaderCell>Price</TableHeaderCell>
+              <TableHeaderCell>Gain</TableHeaderCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {ipodata.IPOs.map((item) => (
+              <TableRow key={item.Name}>
+                <TableCell>{item.Name}</TableCell>
+                <TableCell>
+                  <Text>{item.Date}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text>{item.IPOGMP}</Text>
+                </TableCell>
+                <TableCell>
+                  <Text>{item.IPOPrice}</Text>
+                </TableCell>
+                <TableCell>
+                  <Badge
+                    className="py-1 px-2 rounded-lg"
+                    style={{
+                      backgroundColor:
+                        item.percentChange < 0
+                          ? "rgba(255, 0, 0, 0.2)"
+                          : "rgba(0, 255, 0, 0.2)",
+                    }}
+                  >
+                    <Text>{item.Gain}</Text>
+                  </Badge>
                 </TableCell>
               </TableRow>
             ))}
