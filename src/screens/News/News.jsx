@@ -29,12 +29,12 @@ export function News() {
     <div className="">
       <Header />
 
-      <div className="flex flex-wrap mt-2">
+      <div className="flex flex-wrap mt-2 w-[96%] mx-auto">
         {news.map((val) => {
           return (
             <div
               key={val.title}
-              className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 mx-auto m-4 hover:scale-105 duration-300 ease-in-out"
+              className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 mx-auto m-4 hover:scale-105 duration-500 ease-in-out"
             >
               <a href={val.url}>
                 <img
