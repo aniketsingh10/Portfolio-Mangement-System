@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Table,
@@ -10,19 +10,27 @@ import {
   Text,
   Title,
   Badge,
+  Flex,
 } from "@tremor/react";
 import { Header } from "../../components/Header/Header";
 
 var data = require("../../assets/data/indices.json");
 var ipodata = require("../../assets/data/ipos.json");
+var performerdata = require("../../assets/data/performers.json");
 
 export function Indices() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const handleIndexChange = (index) => {
+    setSelectedIndex(index);
+    // Additional logic if needed based on the selected index
+  };
   console.log(data);
+
   return (
     <div>
       <Header />
       <Card className="mt-4 shadow-lg">
-        <Title className="mx-4">List of Major Global Indices</Title>
+        <Title className="mx-4">Major Global Indices</Title>
         <Table className="mt-5">
           <TableHead>
             <TableRow>
@@ -50,7 +58,7 @@ export function Indices() {
                 </TableCell>
                 <TableCell>
                   <Badge
-                    className="py-1 px-2 rounded-lg mx-3"
+                    className="py-1 px-2 rounded-lg"
                     style={{
                       backgroundColor:
                         item.percentChange < 0
@@ -63,7 +71,7 @@ export function Indices() {
                 </TableCell>
                 <TableCell>
                   <Badge
-                    className="py-1 px-2 rounded-lg mx-3"
+                    className="py-1 px-2 rounded-lg "
                     style={{
                       backgroundColor:
                         item.percentChange < 0
@@ -83,49 +91,143 @@ export function Indices() {
         </Table>
       </Card>
 
-      <Card className="mt-4 shadow-lg w-1/2">
-        <Title className="mx-4">List of Latest IPOs and GMP</Title>
-        <Table className="mt-5">
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>IPO Name</TableHeaderCell>
-              <TableHeaderCell>Date</TableHeaderCell>
-              <TableHeaderCell>GMP</TableHeaderCell>
-              <TableHeaderCell>Price</TableHeaderCell>
-              <TableHeaderCell>Gain</TableHeaderCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {ipodata.IPOs.map((item) => (
-              <TableRow key={item.Name}>
-                <TableCell>{item.Name}</TableCell>
-                <TableCell>
-                  <Text>{item.Date}</Text>
-                </TableCell>
-                <TableCell>
-                  <Text>{item.IPOGMP}</Text>
-                </TableCell>
-                <TableCell>
-                  <Text>{item.IPOPrice}</Text>
-                </TableCell>
-                <TableCell>
-                  <Badge
-                    className="py-1 px-2 rounded-lg"
-                    style={{
-                      backgroundColor:
-                        item.percentChange < 0
-                          ? "rgba(255, 0, 0, 0.2)"
-                          : "rgba(0, 255, 0, 0.2)",
-                    }}
-                  >
-                    <Text>{item.Gain}</Text>
-                  </Badge>
-                </TableCell>
+      <div className="flex mb-10">
+        <Card className="mt-4 shadow-lg w-1/2">
+          <Title className="mx-4">Latest IPOs and GMP</Title>
+          <Table className="mt-5">
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>IPO Name</TableHeaderCell>
+                <TableHeaderCell>Date</TableHeaderCell>
+                <TableHeaderCell>GMP</TableHeaderCell>
+                <TableHeaderCell>Price</TableHeaderCell>
+                <TableHeaderCell>Gain</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Card>
+            </TableHead>
+            <TableBody>
+              {ipodata.IPOs.map((item) => (
+                <TableRow key={item.Name}>
+                  <TableCell>{item.Name}</TableCell>
+                  <TableCell>
+                    <Text>{item.Date}</Text>
+                  </TableCell>
+                  <TableCell>
+                    <Text>{item.IPOGMP}</Text>
+                  </TableCell>
+                  <TableCell>
+                    <Text>{item.IPOPrice}</Text>
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      className="py-1 px-2 rounded-lg"
+                      style={{
+                        backgroundColor:
+                          item.percentChange < 0
+                            ? "rgba(255, 0, 0, 0.2)"
+                            : "rgba(0, 255, 0, 0.2)",
+                      }}
+                    >
+                      <Text>{item.Gain}</Text>
+                    </Badge>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Card>
+
+        <Card className="mt-4 shadow-lg w-1/2">
+          <Flex className="">
+            <Title className="flex mx-4">
+              Market Movers
+              <div className="ml-60 justify-around">
+                <div className="flex">
+                  <div
+                    className={`"hover:scale-105 ease-in-out duration-300 ml-4 cursor-pointer ${
+                      selectedIndex === 0 ? "font-bold" : ""
+                    }`}
+                    onClick={() => handleIndexChange(0)}
+                  >
+                    Gainers
+                  </div>
+                  <div
+                    className={`hover:scale-105 ease-in-out duration-300 ml-6 cursor-pointer ${
+                      selectedIndex === 1 ? "font-bold" : ""
+                    }`}
+                    onClick={() => handleIndexChange(1)}
+                  >
+                    Losers
+                  </div>
+                </div>
+              </div>
+            </Title>
+          </Flex>
+          {selectedIndex === 0 ? (
+            <Table className="mt-5">
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell>Company</TableHeaderCell>
+                  <TableHeaderCell>Price</TableHeaderCell>
+                  <TableHeaderCell>Change</TableHeaderCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {performerdata.gainers.map((item) => (
+                  <TableRow key={item.Name}>
+                    <TableCell>{item.Name}</TableCell>
+                    <TableCell>
+                      <Text>{item.Price}</Text>
+                    </TableCell>
+                    <TableCell>
+                      <Badge
+                        className="py-1 px-2 rounded-lg"
+                        style={{
+                          backgroundColor:
+                            item.percentChange < 0
+                              ? "rgba(255, 0, 0, 0.2)"
+                              : "rgba(0, 255, 0, 0.2)",
+                        }}
+                      >
+                        <Text>{item.Change}</Text>
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <Table className="mt-5">
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell>Company</TableHeaderCell>
+                  <TableHeaderCell>Price</TableHeaderCell>
+                  <TableHeaderCell>Change</TableHeaderCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {performerdata.losers.map((item) => (
+                  <TableRow key={item.Name}>
+                    <TableCell>{item.Name}</TableCell>
+                    <TableCell>
+                      <Text>{item.Price}</Text>
+                    </TableCell>
+                    <TableCell>
+                      <Badge
+                        className="py-1 px-2 rounded-lg"
+                        style={{
+                          backgroundColor: "rgba(255, 0, 0, 0.2)",
+                        }}
+                      >
+                        <Text>{item.Change}</Text>
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </Card>
+      </div>
     </div>
   );
 }

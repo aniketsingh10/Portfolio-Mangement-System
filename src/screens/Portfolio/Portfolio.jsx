@@ -23,9 +23,9 @@ export function Portfolio() {
 
         <label
           htmlFor="fileInput"
-          className="block mx-auto mt-4 px-8 py-4 w-72 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+          className="bg-primary w-[250px] rounded-md  my-6 mx-auto p-5  text-white hover:scale-105 ease-in-out duration-300 font-bold cursor-pointer"
         >
-          <span className="text-2xl font-bold">+</span> Add Portfolio File
+          + Add Portfolio File
         </label>
         <input
           type="file"
