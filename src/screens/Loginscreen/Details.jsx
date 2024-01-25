@@ -11,7 +11,7 @@ const Details = () => {
             src={Img}
             width={600}
             height={600}
-            alt="Description of the image"
+            alt="Description of the images"
             className="mx-auto" // Center the image horizontally
           />
         </picture>

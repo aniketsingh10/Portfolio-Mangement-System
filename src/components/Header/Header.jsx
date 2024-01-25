@@ -70,7 +70,7 @@ export function Header() {
         {/* <a href="#" className="flex items-center">
           About Us
         </a> */}
-        <Link to="/">About Us</Link>
+        <Link to="/Aboutus">About Us</Link>
       </Typography>
       <Typography
         as="li"
