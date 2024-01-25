@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/Header/Header";
 import LeftColumn from "../Dashboard/LeftColumn";
 import RightColumn from "../Dashboard/RightColumn";
-
+import Info from "../../assets/images/info.svg";
+import InfoModal from "../../components/Modals/InfoModal";
+import Laptop from "../../assets/images/laptop.jpg";
 export function Portfolio() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleFile = async (event) => {
     const file = event.target.files[0];
 
@@ -31,6 +34,14 @@ export function Portfolio() {
       console.error("Error uploading file:", error);
     }
   };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div>
       <Header />
@@ -39,14 +50,24 @@ export function Portfolio() {
         <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
           PMS Portfolio Analysis
         </p>
-        <p
-          className=" font-bold p-2 text-xl"
-          style={{
-            color: "rgb(59 130 246)",
-          }}
-        >
-          Upload your Portfolio in excel format for analysis{" "}
-        </p>
+
+        <div className="flex text-center mx-auto">
+          <div
+            className=" font-bold p-2 text-xl "
+            style={{
+              color: "rgb(59 130 246)",
+            }}
+          >
+            Upload your Portfolio in excel format for Analysis
+          </div>
+          <img
+            src={Info}
+            alt="Logo"
+            height={20}
+            width={20}
+            onClick={openModal}
+          />
+        </div>
 
         <label
           htmlFor="fileInput"
@@ -72,6 +93,12 @@ export function Portfolio() {
           </div>
         </div>
       </div>
+      <InfoModal isOpen={isModalOpen} onClose={closeModal}>
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Sample Portfolio</h2>
+          <img src={Laptop} alt="Logo" height={400} width={400} />
+        </div>
+      </InfoModal>
     </div>
   );
 }

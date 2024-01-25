@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const Hero = () => {
@@ -49,7 +50,7 @@ const Hero = () => {
           capabilities.
         </p>
         <button className="bg-primary w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-white hover:scale-105 ease-in-out duration-300">
-          Get Started
+          <Link to="/portfolio">Get Started</Link>
         </button>
       </div>
     </div>
