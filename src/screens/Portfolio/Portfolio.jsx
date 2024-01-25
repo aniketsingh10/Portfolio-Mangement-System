@@ -13,22 +13,22 @@ export function Portfolio() {
     }
 
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
 
     try {
-      const response = await fetch('http://your-backend-api/upload', {
-        method: 'POST',
+      const response = await fetch("http://your-backend-api/upload", {
+        method: "POST",
         body: formData,
       });
 
       // Handle the response from the backend
       if (response.ok) {
-        console.log('File uploaded successfully');
+        console.log("File uploaded successfully");
       } else {
-        console.error('Failed to upload file');
+        console.error("Failed to upload file");
       }
     } catch (error) {
-      console.error('Error uploading file:', error);
+      console.error("Error uploading file:", error);
     }
   };
   return (
@@ -74,15 +74,4 @@ export function Portfolio() {
       </div>
     </div>
   );
-}
-
-function handleFile(event) {
-  const fileInput = event.target;
-  const file = fileInput.files[0];
-
-  if (file) {
-    console.log("File uploaded:", file.name);
-  } else {
-    console.log("No file selected.");
-  }
 }
