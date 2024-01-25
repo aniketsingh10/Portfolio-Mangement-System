@@ -6,7 +6,7 @@ const Hero = () => {
     /* Config */
     words: ["STOCKS", "INVESTMENTS", "PORTFOLIOS"],
     loop: {},
-    typeSpeed: 120,
+    typeSpeed: 200,
   });
   return (
     <div className="text-black">
