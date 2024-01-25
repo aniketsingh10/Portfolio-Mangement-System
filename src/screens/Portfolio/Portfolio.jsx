@@ -4,6 +4,33 @@ import LeftColumn from "../Dashboard/LeftColumn";
 import RightColumn from "../Dashboard/RightColumn";
 
 export function Portfolio() {
+  const handleFile = async (event) => {
+    const file = event.target.files[0];
+
+    // Make sure a file is selected
+    if (!file) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://your-backend-api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      // Handle the response from the backend
+      if (response.ok) {
+        console.log('File uploaded successfully');
+      } else {
+        console.error('Failed to upload file');
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
   return (
     <div>
       <Header />
