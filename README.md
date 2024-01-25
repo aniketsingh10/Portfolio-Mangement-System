@@ -17,7 +17,7 @@ The Stocks Portfolio Management System is a web-based application built using Re
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/stocks-portfolio-management.git
+   git clone https://github.com/aniketsingh10/Portfolio-Mangement-System.git
    ```
 
 2. Navigate to the project directory:
