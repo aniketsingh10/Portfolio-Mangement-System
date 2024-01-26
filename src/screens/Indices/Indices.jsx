@@ -13,6 +13,7 @@ import {
   Flex,
 } from "@tremor/react";
 import { Header } from "../../components/Header/Header";
+import { HorizontalScroller } from "../../components/HorizontalScroller";
 
 var data = require("../../assets/data/indices.json");
 var ipodata = require("../../assets/data/ipos.json");
@@ -29,7 +30,8 @@ export function Indices() {
   return (
     <div>
       <Header />
-      <Card className="mt-4 shadow-lg">
+      <HorizontalScroller />
+      <Card className="shadow-lg">
         <Title className="mx-4">Major Global Indices</Title>
         <Table className="mt-5">
           <TableHead>
