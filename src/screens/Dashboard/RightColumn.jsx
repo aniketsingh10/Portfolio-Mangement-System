@@ -1,6 +1,6 @@
 import React from "react";
-import SalesItem from "./SalesItem";
-import WebAnalytics from "./WebAnalytics";
+import SalesItem from "./PieChart";
+import WebAnalytics from "./TopPerformer";
 
 const RightColumn = () => {
   return (

@@ -7,7 +7,7 @@ Chart.register(ArcElement, Tooltip, Legend);
 const SalesItem = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const data = {
-    labels: ["Reliance", "TCS", "IRFC", "TITAN"],
+    labels: ["IT", "Pharma", "Automobile", "Banking"],
     datasets: [
       {
         label: " Allocation % ",
