@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Table,
@@ -16,17 +16,41 @@ import { Header } from "../../components/Header/Header";
 import { HorizontalScroller } from "../../components/HorizontalScroller";
 
 var data = require("../../assets/data/indices.json");
-var ipodata = require("../../assets/data/ipos.json");
 var performerdata = require("../../assets/data/performers.json");
 
 export function Indices() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [ipoData, setIpoData] = useState(null);
   const handleIndexChange = (index) => {
     setSelectedIndex(index);
     // Additional logic if needed based on the selected index
   };
-  console.log(data);
+  // console.log(data);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/scrapper/ipodata/");
+
+        if (response.ok) {
+          const data = await response.json();
+          // console.log("Fetched Data:", data);
+          setIpoData(data);
+        } else {
+          console.error(
+            "Failed to fetch data:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error during data fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log("Api data", ipoData);
   return (
     <div>
       <Header />
@@ -107,7 +131,7 @@ export function Indices() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {ipodata.IPOs.map((item) => (
+              {ipoData?.IPOs.map((item) => (
                 <TableRow key={item.Name}>
                   <TableCell>{item.Name}</TableCell>
                   <TableCell>

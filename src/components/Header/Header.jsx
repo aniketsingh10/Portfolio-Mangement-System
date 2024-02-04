@@ -163,10 +163,10 @@ export function Header() {
           {navList}
           <div className="flex items-center gap-x-1">
             <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
+              <Link to="/login">Log In</Link>
             </Button>
             <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
+              <Link to="/signup">Sign up</Link>
             </Button>
           </div>
         </Collapse>

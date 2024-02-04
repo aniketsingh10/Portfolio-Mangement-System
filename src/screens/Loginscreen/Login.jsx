@@ -1,9 +1,36 @@
-import * as React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Details from "./Details";
 
 export function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    const url = "http://127.0.0.1:8000/auth/login/";
+    const data = { username, password };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result); // Handle the success response here
+      } else {
+        const errorResult = await response.json();
+        console.error(errorResult); // Handle the error response here
+      }
+    } catch (error) {
+      console.error("Error during login:", error); // Handle network or other errors
+    }
+  };
   return (
     <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
       <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
@@ -18,6 +45,9 @@ export function Login() {
             <input
               className="w-full border-2 border-gray-100 rounded-xl p-2 px-4 mt-1 bg-transparent"
               placeholder="Enter your email"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="flex flex-col mt-2">
@@ -25,13 +55,15 @@ export function Login() {
             <input
               className="w-full border-2 border-gray-100 rounded-xl p-2  px-4 mt-1 bg-transparent"
               placeholder="Enter your email"
-              type={"password"}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mt-4 flex justify-between items-center">
             <div>
               <input type="checkbox" id="remember" />
-              <label className="ml-2 font-medium text-base" for="remember">
+              <label className="ml-2 font-medium text-base" htmlFor="remember">
                 Remember for 30 days
               </label>
             </div>
@@ -40,7 +72,10 @@ export function Login() {
             </button>
           </div>
           <div className="mt-4 flex flex-col gap-y-3">
-            <button className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg">
+            <button
+              className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
+              onClick={handleLogin}
+            >
               Log in
             </button>
             <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl text- font-semibold text-lg border-2 border-gray-100 ">
