@@ -15,18 +15,19 @@ import {
 import { Header } from "../../components/Header/Header";
 import { HorizontalScroller } from "../../components/HorizontalScroller";
 
-var data = require("../../assets/data/indices.json");
-var performerdata = require("../../assets/data/performers.json");
-
 export function Indices() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [ipoData, setIpoData] = useState(null);
+  const [gainerData, setGainerData] = useState(null);
+  const [losersData, setLosersData] = useState(null);
+  const [indicesData, setIndicesData] = useState(null);
+
   const handleIndexChange = (index) => {
     setSelectedIndex(index);
     // Additional logic if needed based on the selected index
   };
-  // console.log(data);
 
+  // For IPO Data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,7 +51,80 @@ export function Indices() {
 
     fetchData();
   }, []);
-  console.log("Api data", ipoData);
+  //console.log("Api data ipo", ipoData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/scrapper/gainers/");
+
+        if (response.ok) {
+          const data = await response.json();
+          // console.log("Fetched Data:", data);
+          setGainerData(data);
+        } else {
+          console.error(
+            "Failed to fetch data:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error during data fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  //console.log("Api data", gainerData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/scrapper/losers/");
+
+        if (response.ok) {
+          const data = await response.json();
+          // console.log("Fetched Data:", data);
+          setLosersData(data);
+        } else {
+          console.error(
+            "Failed to fetch data:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error during data fetch:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  //console.log("losers", losersData);
+
+  // Indices api call
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Make the API request
+        const response = await fetch("http://127.0.0.1:8000/scrapper/indices/");
+        const data = await response.json();
+
+        // Set the fetched data in the state
+        setIndicesData(data.indices);
+        //setLoading(false); // Set loading to false once data is fetched
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        //setLoading(false); // Set loading to false in case of an error
+      }
+    };
+
+    fetchData(); // Call the fetchData function
+  }, []); // The empty dependency array ensures that the useEffect runs only once when the component mounts
+  console.log(indicesData);
+
   return (
     <div>
       <Header />
@@ -70,11 +144,11 @@ export function Indices() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.indices.map((item) => (
+            {indicesData?.map((item) => (
               <TableRow key={item.name}>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>
-                  <Text>{item.open}</Text>
+                  <Text>{item.price}</Text>
                 </TableCell>
                 <TableCell>
                   <Text>{item.high}</Text>
@@ -109,7 +183,7 @@ export function Indices() {
                   </Badge>
                 </TableCell>
                 <TableCell>
-                  <Text>{item.time}</Text>
+                  <Text>{item.tech_rating}</Text>
                 </TableCell>
               </TableRow>
             ))}
@@ -198,7 +272,7 @@ export function Indices() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {performerdata.gainers.map((item) => (
+                {gainerData?.gainers.map((item) => (
                   <TableRow key={item.Name}>
                     <TableCell>{item.Name}</TableCell>
                     <TableCell>
@@ -231,7 +305,7 @@ export function Indices() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {performerdata.losers.map((item) => (
+                {losersData?.losers.map((item) => (
                   <TableRow key={item.Name}>
                     <TableCell>{item.Name}</TableCell>
                     <TableCell>
