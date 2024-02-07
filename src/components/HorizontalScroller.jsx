@@ -22,7 +22,7 @@ export function HorizontalScroller() {
 
     fetchData(); // Call the fetchData function
   }, []); // The empty dependency array ensures that the useEffect runs only once when the component mounts
-  console.log(indicesData);
+  //console.log(indicesData);
 
   return (
     <Marquee
