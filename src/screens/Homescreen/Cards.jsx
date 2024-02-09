@@ -1,6 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { TEChart } from "tw-elements-react";
 
+const useAsyncEffect = (apiUrl, setData, errorMessage, maxRetries = 3) => {
+  useEffect(() => {
+    let retryCount = 0;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setData(data.nifty);
+      } catch (error) {
+        //console.error(`Error fetching ${errorMessage} data:`, error);
+        if (retryCount < maxRetries) {
+          retryCount++;
+          retryFetch();
+        }
+      }
+    };
+
+    const retryFetch = () => {
+      setTimeout(() => {
+        fetchData();
+      }, 1000);
+    };
+
+    fetchData();
+  }, [apiUrl, setData, errorMessage, maxRetries]);
+};
+
 const Cards = () => {
   const [niftyData, setNiftyData] = useState([]);
   const [sensexData, setSensexData] = useState([]);
@@ -9,59 +37,28 @@ const Cards = () => {
   const [finData, setFinData] = useState([]);
   const [fmcgData, setFmcgData] = useState([]);
 
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/nse";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setNiftyData(data.nifty))
-      .catch((error) => console.error("Error fetching Nifty data"));
-  }, []);
-
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/bse";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setSensexData(data.nifty))
-      .catch((error) => console.error("Error fetching Sensex BSE data"));
-  }, []);
-
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/bank";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setBankData(data.nifty))
-      .catch((error) => console.error("Error fetching Nifty Bank data"));
-  }, []);
-
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/it";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setITData(data.nifty))
-      .catch((error) => console.error("Error fetching Nifty IT data"));
-  }, []);
-
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/finance";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setFinData(data.nifty))
-      .catch((error) => console.error("Error fetching Nifty Finance"));
-  }, []);
-
-  useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/scrapper/fmcg";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setFmcgData(data.nifty))
-      .catch((error) => console.error("Error fetching Nifty FMCG"));
-  }, []);
+  useAsyncEffect("http://127.0.0.1:8000/scrapper/nse", setNiftyData, "Nifty");
+  useAsyncEffect(
+    "http://127.0.0.1:8000/scrapper/bse",
+    setSensexData,
+    "Sensex BSE"
+  );
+  useAsyncEffect(
+    "http://127.0.0.1:8000/scrapper/bank",
+    setBankData,
+    "Nifty Bank"
+  );
+  useAsyncEffect("http://127.0.0.1:8000/scrapper/it", setITData, "Nifty IT");
+  useAsyncEffect(
+    "http://127.0.0.1:8000/scrapper/finance",
+    setFinData,
+    "Nifty Finance"
+  );
+  useAsyncEffect(
+    "http://127.0.0.1:8000/scrapper/fmcg",
+    setFmcgData,
+    "Nifty FMCG"
+  );
 
   // function to convert date
   const formatDate = (inputDate) => {

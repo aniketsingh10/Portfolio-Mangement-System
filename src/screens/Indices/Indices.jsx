@@ -140,7 +140,7 @@ export function Indices() {
               <TableHeaderCell>Low</TableHeaderCell>
               <TableHeaderCell>Percent Change</TableHeaderCell>
               <TableHeaderCell>Change</TableHeaderCell>
-              <TableHeaderCell>Time</TableHeaderCell>
+              <TableHeaderCell>Tech Rating</TableHeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
