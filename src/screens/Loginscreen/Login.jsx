@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Details from "./Details";
-import { Header } from "../../components/Header/Header";
 
 export function Login() {
   const [useremail, setUseremail] = useState("");
@@ -30,31 +29,35 @@ export function Login() {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
+        Swal.fire({
+          title:'Log in Successful',
+          icon:'success',
+          
+          timer:2000,
+          showCancelButton:false,
+          showConfirmButton:false
+    
+        }).then(handleclick())
       } else {
         const errorResult = await response.json();
-        console.error(errorResult); // Handle the error response here
+        console.error(errorResult); 
+        Swal.fire({
+          title:'Log in Failed',
+          icon:'warning',
+          
+          timer:2000,
+          showCancelButton:false,
+          showConfirmButton:false
+    
+        })
       }
     } catch (error) {
       console.error("Error during login:", error); // Handle network or other errors
     }
   };
-  const handlesuccess=() =>{
-    Swal.fire({
-      title:'Logged in Successful',
-      icon:'success',
-      
-      timer:2000,
-      showCancelButton:false,
-      showConfirmButton:false
-
-    }).then(handleclick())
-  };
   
   return (
    
-    <div>
-      <Header/>
-    
     <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
      <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
         <h1 className="flex w-[80%] mx-auto text-3xl font-semibold">LOG IN</h1>
@@ -97,7 +100,7 @@ export function Login() {
           <div className="mt-4 flex flex-col gap-y-3">
             <button
               className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
-              onClick={handlesuccess}
+              onClick={handleLogin}
             >
               
               Log in
@@ -141,7 +144,6 @@ export function Login() {
       </div>
       <Details />
       </div>
-    </div>
    
     
   );

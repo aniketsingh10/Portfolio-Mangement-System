@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Details from "./Details";
-import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 export function Signup() {
   const [userData, setUserData] = useState({
@@ -34,38 +33,34 @@ export function Signup() {
       if (response.ok) {
         // Registration successful
         console.log("User registered successfully");
-        // Redirect or perform other actions as needed
+        Swal.fire({
+          text: "Sign Up Successfully!",
+          icon: "success",
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+        }).then(handleclick());
       } else {
-        // Handle registration failure
         console.error("Registration failed");
+        Swal.fire({
+          text: "Signed Up Failed!",
+          icon: "warning",
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+        }).then(handleclick());
       }
     } catch (error) {
       console.error("Error during registration:", error);
     }
   };
-  const navigate=useNavigate();
-  const handleclick = () =>{
-    navigate('/');
-  };
-  const handlesuccess= () =>{
-    Swal.fire({
-      text:'Signed Up Successfully!',
-      icon:'success',
-      timer:2000,
-      showCancelButton:false,
-      showConfirmButton:false
-
-      
-
-
-    }).then(handleclick());
+  const navigate = useNavigate();
+  const handleclick = () => {
+    navigate("/");
   };
 
   return (
-   <div>
-    <Header/>
-  
-   <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
+    <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
       <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
         <h1 className="flex w-[80%] mx-auto text-3xl font-semibold">SIGN UP</h1>
         <p className="font-medium w-[80%] mx-auto text-lg text-gray-500 mt-2">
@@ -136,7 +131,7 @@ export function Signup() {
             <button
               className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
               type="button"
-              onClick={handlesuccess}
+              onClick={handleRegister}
             >
               Sign Up
             </button>
@@ -177,7 +172,6 @@ export function Signup() {
         </div>
       </div>
       <Details />
-      </div>
     </div>
   );
 }
