@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Details from "./Details";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export function Signup() {
   const [userData, setUserData] = useState({
@@ -31,14 +33,30 @@ export function Signup() {
       if (response.ok) {
         // Registration successful
         console.log("User registered successfully");
-        // Redirect or perform other actions as needed
+        Swal.fire({
+          text: "Sign Up Successfully!",
+          icon: "success",
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+        }).then(handleclick());
       } else {
-        // Handle registration failure
         console.error("Registration failed");
+        Swal.fire({
+          text: "Signed Up Failed!",
+          icon: "warning",
+          timer: 2000,
+          showCancelButton: false,
+          showConfirmButton: false,
+        }).then(handleclick());
       }
     } catch (error) {
       console.error("Error during registration:", error);
     }
+  };
+  const navigate = useNavigate();
+  const handleclick = () => {
+    navigate("/");
   };
 
   return (

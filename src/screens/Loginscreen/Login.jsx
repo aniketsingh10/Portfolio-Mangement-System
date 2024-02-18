@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
+import {useNavigate} from 'react-router-dom';
+import Swal from "sweetalert2";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Details from "./Details";
@@ -6,6 +8,10 @@ import Details from "./Details";
 export function Login() {
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
+  const handleclick = () =>{
+    navigate('/');
+  };
 
   const handleLogin = async () => {
     const url = "http://127.0.0.1:8000/auth/login";
@@ -23,17 +29,37 @@ export function Login() {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
+        Swal.fire({
+          title:'Log in Successful',
+          icon:'success',
+          
+          timer:2000,
+          showCancelButton:false,
+          showConfirmButton:false
+    
+        }).then(handleclick())
       } else {
         const errorResult = await response.json();
-        console.error(errorResult); // Handle the error response here
+        console.error(errorResult); 
+        Swal.fire({
+          title:'Log in Failed',
+          icon:'warning',
+          
+          timer:2000,
+          showCancelButton:false,
+          showConfirmButton:false
+    
+        })
       }
     } catch (error) {
       console.error("Error during login:", error); // Handle network or other errors
     }
   };
+  
   return (
+   
     <div className="h-[98%] flex mx-auto flex-col lg:flex-row m-20 my-auto mt-4">
-      <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
+     <div className="md:w-3/5 w-[98%] items-center px-4 py-4 rounded-3xl my-auto mx-auto">
         <h1 className="flex w-[80%] mx-auto text-3xl font-semibold">LOG IN</h1>
         <p className="font-medium w-[80%] mx-auto text-lg text-gray-500 mt-2">
           Welcome back! Please enter you details.
@@ -76,7 +102,9 @@ export function Login() {
               className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
               onClick={handleLogin}
             >
+              
               Log in
+          
             </button>
             <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl text- font-semibold text-lg border-2 border-gray-100 ">
               <svg
@@ -115,6 +143,8 @@ export function Login() {
         </div>
       </div>
       <Details />
-    </div>
+      </div>
+   
+    
   );
 }
