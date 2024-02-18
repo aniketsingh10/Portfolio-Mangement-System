@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BadgeDelta, Card, Flex, Metric, Text } from "@tremor/react";
 
-const CardItem = () => {
+const CardItem = ({data}) => {
+  // const [profitData, setProfitData] = useState(null);
+  // const [invetedData, setInvestedData] = useState(null);
+  console.log("Portfolio Data",data);
+  console.log("profit_loss",data?.data?.profit_loss);
   return (
     <div className="flex flex-col lg:flex-row gap-2 w-full">
       <Card
@@ -18,7 +22,7 @@ const CardItem = () => {
             +12.5%
           </BadgeDelta>
         </Flex>
-        <Metric className="text-lg">₹ 34,743</Metric>
+        <Metric className="text-lg">₹ {data?.data?.total_invested + data?.data?.profit_loss}</Metric>
       </Card>
       <Card
         className="w-xs shadow-lg rounded-lg"
@@ -34,7 +38,7 @@ const CardItem = () => {
             +12.5%
           </BadgeDelta>
         </Flex>
-        <Metric className="text-lg">₹ 30,600</Metric>
+        <Metric className="text-lg">{data?.data?.total_invested}</Metric>
       </Card>
       <Card
         className="w-xs shadow-lg rounded-lg"
@@ -50,7 +54,7 @@ const CardItem = () => {
             +12.5%
           </BadgeDelta>
         </Flex>
-        <Metric className="text-lg">₹ 4,143</Metric>
+        <Metric className="text-lg">{data?.data?.profit_loss}</Metric>
       </Card>
     </div>
   );

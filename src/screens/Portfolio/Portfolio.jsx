@@ -7,6 +7,7 @@ import InfoModal from "../../components/Modals/InfoModal";
 import Laptop from "../../assets/images/laptop.jpg";
 export function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [portfolioData, setPortfolioData] = useState(null);
   const handleFile = async (event) => {
     const file = event.target.files[0];
 
@@ -19,13 +20,15 @@ export function Portfolio() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://your-backend-api/upload", {
+      const response = await fetch("http://127.0.0.1:8000/portfolio/upload", {
         method: "POST",
         body: formData,
       });
 
       // Handle the response from the backend
       if (response.ok) {
+        const data = await response.json();
+        setPortfolioData(data);
         console.log("File uploaded successfully");
       } else {
         console.error("Failed to upload file");
@@ -34,6 +37,7 @@ export function Portfolio() {
       console.error("Error uploading file:", error);
     }
   };
+  // console.log(portfolioData);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -78,21 +82,24 @@ export function Portfolio() {
         <input
           type="file"
           id="fileInput"
-          accept=".xls, .xlsx"
+          accept=".xls, .xlsx, .csv"
           onChange={handleFile}
           className="hidden"
         />
       </div>
-      <div className="flex flex-col flex-1 relative mt-10">
-        <div className="grid md:grid-cols-3 grid-cols-1 w-full">
-          <div className="col-span-2">
-            <LeftColumn />
-          </div>
-          <div className="w-full">
-            <RightColumn />
+      {portfolioData ? (
+        <div className="flex flex-col flex-1 relative mt-10">
+          <div className="grid md:grid-cols-3 grid-cols-1 w-full">
+            <div className="col-span-2">
+              <LeftColumn data={portfolioData} />
+            </div>
+            <div className="w-full">
+              <RightColumn data={portfolioData} />
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
+
       <InfoModal isOpen={isModalOpen} onClose={closeModal}>
         <div>
           <h2 className="text-2xl font-bold mb-4">Sample Portfolio</h2>
