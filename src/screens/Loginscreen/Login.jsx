@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
+import {useNavigate} from 'react-router-dom';
+import Swal from "sweetalert2";
 import "./login.css";
 import { Link } from "react-router-dom";
 import Details from "./Details";
@@ -7,6 +9,10 @@ import { Header } from "../../components/Header/Header";
 export function Login() {
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
+  const handleclick = () =>{
+    navigate('/');
+  };
 
   const handleLogin = async () => {
     const url = "http://127.0.0.1:8000/auth/login";
@@ -32,6 +38,18 @@ export function Login() {
       console.error("Error during login:", error); // Handle network or other errors
     }
   };
+  const handlesuccess=() =>{
+    Swal.fire({
+      title:'Logged in Successful',
+      icon:'success',
+      
+      timer:2000,
+      showCancelButton:false,
+      showConfirmButton:false
+
+    }).then(handleclick())
+  };
+  
   return (
    
     <div>
@@ -79,9 +97,11 @@ export function Login() {
           <div className="mt-4 flex flex-col gap-y-3">
             <button
               className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
-              onClick={handleLogin}
+              onClick={handlesuccess}
             >
+              
               Log in
+          
             </button>
             <button className="flex items-center justify-center gap-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl text- font-semibold text-lg border-2 border-gray-100 ">
               <svg

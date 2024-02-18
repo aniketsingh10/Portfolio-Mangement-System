@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Details from "./Details";
 import { Header } from "../../components/Header/Header";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export function Signup() {
   const [userData, setUserData] = useState({
@@ -40,6 +42,23 @@ export function Signup() {
     } catch (error) {
       console.error("Error during registration:", error);
     }
+  };
+  const navigate=useNavigate();
+  const handleclick = () =>{
+    navigate('/');
+  };
+  const handlesuccess= () =>{
+    Swal.fire({
+      text:'Signed Up Successfully!',
+      icon:'success',
+      timer:2000,
+      showCancelButton:false,
+      showConfirmButton:false
+
+      
+
+
+    }).then(handleclick());
   };
 
   return (
@@ -117,7 +136,7 @@ export function Signup() {
             <button
               className="active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01]  ease-in-out transform py-2  rounded-xl bg-primary text-white font-bold text-lg"
               type="button"
-              onClick={handleRegister}
+              onClick={handlesuccess}
             >
               Sign Up
             </button>
