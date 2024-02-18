@@ -20,6 +20,7 @@ export function Header() {
   }, []);
 
   const navList = (
+
     <ul className="mt-2  flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
       <Typography
         as="li"
@@ -88,6 +89,16 @@ export function Header() {
           Github
         </Link>
       </Typography>
+
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
+      >
+        <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+      </Typography>
+
     </ul>
   );
 
