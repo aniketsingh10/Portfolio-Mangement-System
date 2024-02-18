@@ -31,7 +31,7 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/ipodata/");
+        const response = await fetch("http://127.0.0.1:8000/scrapper/ipodata");
 
         if (response.ok) {
           const data = await response.json();
@@ -56,7 +56,7 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/gainers/");
+        const response = await fetch("http://127.0.0.1:8000/scrapper/gainers");
 
         if (response.ok) {
           const data = await response.json();
@@ -81,7 +81,7 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/losers/");
+        const response = await fetch("http://127.0.0.1:8000/scrapper/losers");
 
         if (response.ok) {
           const data = await response.json();
@@ -109,7 +109,7 @@ export function Indices() {
     const fetchData = async () => {
       try {
         // Make the API request
-        const response = await fetch("http://127.0.0.1:8000/scrapper/indices/");
+        const response = await fetch("http://127.0.0.1:8000/scrapper/indices");
         const data = await response.json();
 
         // Set the fetched data in the state

@@ -5,12 +5,12 @@ import Details from "./Details";
 import { Header } from "../../components/Header/Header";
 
 export function Login() {
-  const [username, setUsername] = useState("");
+  const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    const url = "http://127.0.0.1:8000/auth/login/";
-    const data = { username, password };
+    const url = "http://127.0.0.1:8000/auth/login";
+    const data = { email: useremail, password };
 
     try {
       const response = await fetch(url, {
@@ -23,7 +23,7 @@ export function Login() {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result); // Handle the success response here
+        console.log(result);
       } else {
         const errorResult = await response.json();
         console.error(errorResult); // Handle the error response here
@@ -51,8 +51,8 @@ export function Login() {
               className="w-full border-2 border-gray-100 rounded-xl p-2 px-4 mt-1 bg-transparent"
               placeholder="Enter your email"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={useremail}
+              onChange={(e) => setUseremail(e.target.value)}
             />
           </div>
           <div className="flex flex-col mt-2">
