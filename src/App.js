@@ -14,6 +14,7 @@ import { Portfolio} from "./screens/Portfolio/Portfolio";
 import { Analysis } from "./screens/Analysis/Analysis";
 import { Aboutus } from "./screens/Aboutus/Aboutus";
 import { Indices } from "./screens/Indices/Indices";
+import { CuratedPortfolio } from "./screens/CuratedPortfolio/CuratedPortfolio";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/Aboutus" element={<Aboutus />} />
           <Route path="/indices" element={<Indices />} />
+          <Route path="/CuratedPortfolio" element={<CuratedPortfolio />} />
         </Routes>
       </Router>
      
