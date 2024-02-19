@@ -67,14 +67,14 @@ export function Header() {
       >
         <Link to="/portfolio">Portfolio</Link>
       </Typography>
-      <Typography
+      {/* <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
         <Link to="/dashboard">Dashboard</Link>
-      </Typography>
+      </Typography> */}
       <Typography
         as="li"
         variant="small"
