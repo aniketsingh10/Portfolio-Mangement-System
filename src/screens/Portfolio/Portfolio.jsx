@@ -4,7 +4,7 @@ import LeftColumn from "../Dashboard/LeftColumn";
 import RightColumn from "../Dashboard/RightColumn";
 import Info from "../../assets/images/info.svg";
 import InfoModal from "../../components/Modals/InfoModal";
-import Laptop from "../../assets/images/laptop.jpg";
+import stock from "../../assets/images/stock.png";
 export function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [portfolioData, setPortfolioData] = useState(null);
@@ -103,7 +103,7 @@ export function Portfolio() {
       <InfoModal isOpen={isModalOpen} onClose={closeModal}>
         <div>
           <h2 className="text-2xl font-bold mb-4">Sample Portfolio</h2>
-          <img src={Laptop} alt="Logo" height={400} width={400} />
+          <img src={stock} alt="Logo" height={400} width={400} />
         </div>
       </InfoModal>
     </div>
