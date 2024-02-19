@@ -14,6 +14,8 @@ import {
 } from "@tremor/react";
 import { Header } from "../../components/Header/Header";
 import { HorizontalScroller } from "../../components/HorizontalScroller";
+import { ThreeDots } from "react-loader-spinner";
+
 
 export function Indices() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -21,10 +23,10 @@ export function Indices() {
   const [gainerData, setGainerData] = useState(null);
   const [losersData, setLosersData] = useState(null);
   const [indicesData, setIndicesData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleIndexChange = (index) => {
     setSelectedIndex(index);
-    // Additional logic if needed based on the selected index
   };
 
   // For IPO Data
@@ -35,7 +37,6 @@ export function Indices() {
 
         if (response.ok) {
           const data = await response.json();
-          // console.log("Fetched Data:", data);
           setIpoData(data);
         } else {
           console.error(
@@ -51,7 +52,6 @@ export function Indices() {
 
     fetchData();
   }, []);
-  //console.log("Api data ipo", ipoData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,7 +76,6 @@ export function Indices() {
 
     fetchData();
   }, []);
-  //console.log("Api data", gainerData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -85,7 +84,6 @@ export function Indices() {
 
         if (response.ok) {
           const data = await response.json();
-          // console.log("Fetched Data:", data);
           setLosersData(data);
         } else {
           console.error(
@@ -101,32 +99,42 @@ export function Indices() {
 
     fetchData();
   }, []);
-  //console.log("losers", losersData);
 
   // Indices api call
-
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
-        // Make the API request
         const response = await fetch("http://127.0.0.1:8000/scrapper/indices");
         const data = await response.json();
 
-        // Set the fetched data in the state
         setIndicesData(data.indices);
-        //setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
         console.error("Error fetching data:", error);
-        //setLoading(false); // Set loading to false in case of an error
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchData(); // Call the fetchData function
-  }, []); // The empty dependency array ensures that the useEffect runs only once when the component mounts
-  console.log(indicesData);
+    fetchData();
+  }, []);
 
   return (
     <div>
+      {isLoading && (
+        <div className="flex justify-center items-center absolute inset-0 bg-gray-800 bg-opacity-50">
+          <ThreeDots
+            visible={true}
+            height="80"
+            width="80"
+            color="rgb(59 130 246)"
+            radius="9"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      )}
       <Header />
       <HorizontalScroller />
       <Card className="shadow-lg">

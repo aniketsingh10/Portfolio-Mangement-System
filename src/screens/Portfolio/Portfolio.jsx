@@ -4,10 +4,14 @@ import LeftColumn from "../Dashboard/LeftColumn";
 import RightColumn from "../Dashboard/RightColumn";
 import Info from "../../assets/images/info.svg";
 import InfoModal from "../../components/Modals/InfoModal";
+import { ThreeDots } from "react-loader-spinner";
 import stock from "../../assets/images/stock.png";
+
 export function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [portfolioData, setPortfolioData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleFile = async (event) => {
     const file = event.target.files[0];
 
@@ -18,6 +22,8 @@ export function Portfolio() {
 
     const formData = new FormData();
     formData.append("file", file);
+
+    setIsLoading(true);
 
     try {
       const response = await fetch("http://127.0.0.1:8000/portfolio/upload", {
@@ -35,9 +41,10 @@ export function Portfolio() {
       }
     } catch (error) {
       console.error("Error uploading file:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
-  // console.log(portfolioData);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -46,18 +53,19 @@ export function Portfolio() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div>
       <Header />
 
-      <div className="max-w-[800px]  w-full  mx-auto text-center flex flex-col justify-center pt-10">
+      <div className="max-w-[800px] w-full mx-auto text-center flex flex-col justify-center pt-10">
         <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
           PMS Portfolio Analysis
         </p>
 
         <div className="flex text-center mx-auto">
           <div
-            className=" font-bold p-2 text-xl "
+            className="font-bold p-2 text-xl"
             style={{
               color: "rgb(59 130 246)",
             }}
@@ -75,7 +83,7 @@ export function Portfolio() {
 
         <label
           htmlFor="fileInput"
-          className="bg-primary w-[250px] rounded-md  my-6 mx-auto p-5  text-white hover:scale-105 ease-in-out duration-300 font-bold cursor-pointer"
+          className="bg-primary w-[250px] rounded-md my-6 mx-auto p-5 text-white hover:scale-105 ease-in-out duration-300 font-bold cursor-pointer"
         >
           + Add Portfolio File
         </label>
@@ -87,6 +95,22 @@ export function Portfolio() {
           className="hidden"
         />
       </div>
+
+      {isLoading && (
+        <div className="flex justify-center items-center absolute inset-0 bg-gray-800 bg-opacity-50">
+          <ThreeDots
+            visible={true}
+            height="80"
+            width="80"
+            color="rgb(59 130 246)"
+            radius="9"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
+      )}
+
       {portfolioData ? (
         <div className="flex flex-col flex-1 relative mt-10">
           <div className="grid md:grid-cols-3 grid-cols-1 w-full">

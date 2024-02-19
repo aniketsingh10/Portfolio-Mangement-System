@@ -57,7 +57,6 @@ export function Header() {
   }, []);
 
   const navList = (
-
     <ul className="mt-2  flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
       <Typography
         as="li"
@@ -65,7 +64,11 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/portfolio">Portfolio</Link>
+        {isLoggedIn ? (
+          <Link to="/portfolio">Portfolio</Link>
+        ) : (
+          <Link to="/login">Portfolio</Link>
+        )}
       </Typography>
       {/* <Typography
         as="li"
@@ -81,7 +84,11 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/analysis">Analysis</Link>
+        {isLoggedIn ? (
+          <Link to="/analysis">Analysis</Link>
+        ) : (
+          <Link to="/login">Analysis</Link>
+        )}
       </Typography>
       <Typography
         as="li"
@@ -89,7 +96,11 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/indices">Indices</Link>
+        {isLoggedIn ? (
+          <Link to="/indices">Indices</Link>
+        ) : (
+          <Link to="/login">Indices</Link>
+        )}
       </Typography>
       <Typography
         as="li"
@@ -97,7 +108,11 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/news">News</Link>
+        {isLoggedIn ? (
+          <Link to="/news">News</Link>
+        ) : (
+          <Link to="/login">News</Link>
+        )}
       </Typography>
       <Typography
         as="li"
@@ -133,9 +148,12 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+        {isLoggedIn ? (
+          <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+        ) : (
+          <Link to="/login">Curated Portfolio</Link>
+        )}
       </Typography>
-
     </ul>
   );
 
@@ -156,7 +174,7 @@ export function Header() {
                 size="sm"
                 className="hidden lg:inline-block"
               >
-                {isLoggedIn ? name : <Link to="/login">Log In</Link>}
+                {isLoggedIn ? `Hi ${name}` : <Link to="/login">Log In</Link>}
               </Button>
               <Button
                 size="sm"
@@ -224,7 +242,7 @@ export function Header() {
           {navList}
           <div className="flex items-center gap-x-1">
             <Button fullWidth variant="text" size="sm" className="">
-              {isLoggedIn ? name : <Link to="/login">Log In</Link>}
+              {isLoggedIn ? `Hi ${name}` : <Link to="/login">Log In</Link>}
             </Button>
             <Button fullWidth variant="gradient" size="sm" className="">
               {isLoggedIn ? (
