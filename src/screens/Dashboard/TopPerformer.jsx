@@ -1,30 +1,13 @@
 import React from "react";
 import { BarList, Card, Title, Bold, Flex, Text } from "@tremor/react";
 
-const data = [
-  {
-    name: "Reliance",
-    value: 45,
-  },
-  {
-    name: "Reliance",
-    value: 35,
-  },
-  {
-    name: "Reliance",
-    value: 27,
-  },
-  {
-    name: "Reliance",
-    value: 19,
-  },
-  {
-    name: "Reliance",
-    value: 9,
-  },
-];
+const WebAnalytics = ({data}) => {
+  const sortedPortfolio = [data?.data?.portfolio].sort((a, b) => b.profit_loss_percentage - a.profit_loss_percentage);
 
-const WebAnalytics = () => {
+  const top5Performers = sortedPortfolio.slice(0, 5);
+
+ console.log("Top Performer",top5Performers)
+
   return (
     <Card className="max-w-full my-4 shadow-lg">
       <Title>Top Performers in Portfolio</Title>
@@ -36,7 +19,7 @@ const WebAnalytics = () => {
           <Bold>% Returns</Bold>
         </Text>
       </Flex>
-      <BarList data={data} className="mt-2" />
+      {/* <BarList data={performer} className="mt-2" /> */}
     </Card>
   );
 };

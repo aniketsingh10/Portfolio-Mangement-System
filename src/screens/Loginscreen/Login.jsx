@@ -8,6 +8,8 @@ import Details from "./Details";
 export function Login() {
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  
   const navigate=useNavigate();
   const handleclick = () =>{
     navigate('/');
@@ -29,6 +31,10 @@ export function Login() {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
+        setLoggedIn(true);
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('useremail', useremail);
+        localStorage.setItem('password', password);
         Swal.fire({
           title:'Log in Successful',
           icon:'success',

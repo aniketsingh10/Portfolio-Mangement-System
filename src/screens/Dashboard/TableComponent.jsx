@@ -12,52 +12,7 @@ import {
   Badge,
 } from "@tremor/react";
 
-const data = [
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2432",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2451",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2290",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2010",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2340",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "2618",
-    status: "15.36 %",
-  },
-  {
-    name: "Reliance Ltd.",
-    Role: "20",
-    departement: "1200",
-    status: "15.36 %",
-  },
-];
-
-const TableComponent = () => {
+const TableComponent = ({ data }) => {
   return (
     <Card className="mt-4 shadow-lg">
       <Title>List of Stocks Holding in Portfolio</Title>
@@ -71,19 +26,25 @@ const TableComponent = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((item) => (
+          {data?.data?.portfolio.map((item) => (
             <TableRow key={item.name}>
               <TableCell>{item.name}</TableCell>
               <TableCell>
-                <Text>{item.Role}</Text>
+                <Text>{item.quantity}</Text>
               </TableCell>
               <TableCell>
-                <Text>{item.departement}</Text>
+                <Text>{item.buy_price}</Text>
               </TableCell>
               <TableCell>
-                <Badge className="bg-green-100 py-1 px-2 rounded-lg mx-3">
-                  {item.status}
-                </Badge>
+                {item.profit_loss_percentage > 0 ? (
+                  <Badge className="bg-green-100 py-1 px-2 rounded-lg mx-3">
+                    {item.profit_loss_percentage} %
+                  </Badge>
+                ) : (
+                  <Badge className="bg-red-100 py-1 px-2 rounded-lg mx-3">
+                    {item.profit_loss_percentage} %
+                  </Badge>
+                )}
               </TableCell>
             </TableRow>
           ))}

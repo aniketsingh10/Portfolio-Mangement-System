@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Navbar,
@@ -11,6 +11,43 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [name, setName] = useState("");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  useEffect(() => {
+    const useremail = localStorage.getItem("useremail");
+    const password = localStorage.getItem("password");
+
+    const getName = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: useremail,
+            password: password,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setName(data.data.name);
+        } else {
+          console.error("Username cannot get");
+        }
+      } catch (error) {
+        console.error("Error during login:", error.message);
+      }
+    };
+
+    if (isLoggedIn) {
+      getName();
+    } else {
+      console.log("Login first");
+    }
+  }, [isLoggedIn]);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -108,7 +145,7 @@ export function Header() {
                 size="sm"
                 className="hidden lg:inline-block"
               >
-                <Link to="/login">Log In</Link>
+                {isLoggedIn ? name : <Link to="/login">Log In</Link>}
               </Button>
               <Button
                 size="sm"
@@ -117,7 +154,20 @@ export function Header() {
                   backgroundColor: "rgb(59 130 246)",
                 }}
               >
-                <Link to="/signup">Sign up</Link>
+                {isLoggedIn ? (
+                  <>
+                    <Link
+                      to="/login"
+                      onClick={() => {
+                        localStorage.setItem("isLoggedIn", false);
+                      }}
+                    >
+                      Log Out
+                    </Link>
+                  </>
+                ) : (
+                  <Link to="/signup">Sign up</Link>
+                )}
               </Button>
             </div>
             <IconButton
@@ -163,10 +213,23 @@ export function Header() {
           {navList}
           <div className="flex items-center gap-x-1">
             <Button fullWidth variant="text" size="sm" className="">
-              <Link to="/login">Log In</Link>
+              {isLoggedIn ? name : <Link to="/login">Log In</Link>}
             </Button>
             <Button fullWidth variant="gradient" size="sm" className="">
-              <Link to="/signup">Sign up</Link>
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => {
+                      localStorage.setItem("isLoggedIn", false);
+                    }}
+                  >
+                    Log Out
+                  </Link>
+                </>
+              ) : (
+                <Link to="/signup">Sign up</Link>
+              )}
             </Button>
           </div>
         </Collapse>

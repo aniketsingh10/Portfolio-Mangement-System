@@ -5,8 +5,8 @@ import WebAnalytics from "./TopPerformer";
 const RightColumn = ({data}) => {
   return (
     <div className="w-full p-2">
-      <SalesItem />
-      <WebAnalytics />
+      <SalesItem data={data}/>
+      <WebAnalytics data={data}/>
       {/* <ScoreList /> */}
     </div>
   );

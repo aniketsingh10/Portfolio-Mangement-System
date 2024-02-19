@@ -4,14 +4,36 @@ import { Doughnut, Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 Chart.register(ArcElement, Tooltip, Legend);
 
-const SalesItem = () => {
+const SalesItem = ({data}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const data = {
-    labels: ["IT", "Pharma", "Automobile", "Banking"],
+  const sectordata = {
+    labels: data?.data?.sector_percentage.map(entry => entry.sector),
     datasets: [
       {
         label: " Allocation % ",
-        data: [10, 20, 30, 40], // Add your data values here
+        data: data?.data?.sector_percentage.map(entry => entry.percentage), // Add your data values here
+        backgroundColor: [
+          "rgb(191 219 254)",
+          "rgb(147 197 253)",
+          "rgb(96 165 250)",
+          "rgb(59 130 246)",
+        ], // Add your desired colors
+        hoverBackgroundColor: [
+          "rgb(191 219 254)",
+          "rgb(147 197 253)",
+          "rgb(96 165 250)",
+          "rgb(59 130 246)",
+        ],
+      },
+    ],
+  };
+
+  const marketdata = {
+    labels: data?.data?.market_cap_percentage.map(entry => entry.market_cap),
+    datasets: [
+      {
+        label: " Allocation % ",
+        data: data?.data?.market_cap_percentage.map(entry => entry.percentage), // Add your data values here
         backgroundColor: [
           "rgb(191 219 254)",
           "rgb(147 197 253)",
@@ -44,9 +66,9 @@ const SalesItem = () => {
         </TabGroup>
       </Flex>
       {selectedIndex === 0 ? (
-        <Doughnut data={data} className="m-5" />
+        <Doughnut data={sectordata} className="m-5" />
       ) : (
-        <Pie data={data} className="m-5" />
+        <Pie data={marketdata} className="m-5" />
       )}
     </Card>
   );
