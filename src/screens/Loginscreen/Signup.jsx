@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export function Signup() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -34,10 +33,9 @@ export function Signup() {
       if (response.ok) {
         // Registration successful
         console.log("User registered successfully");
-        setLoggedIn(true);
-        localStorage.setItem('isLoggedIn', true);
-        localStorage.setItem('useremail', userData.email);
-        localStorage.setItem('password', userData.password);
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("useremail", userData.email);
+        localStorage.setItem("password", userData.password);
         Swal.fire({
           text: "Sign Up Successfully!",
           icon: "success",
@@ -50,13 +48,20 @@ export function Signup() {
         Swal.fire({
           text: "Signed Up Failed!",
           icon: "warning",
-          timer: 2000,
+          timer: 1000,
           showCancelButton: false,
           showConfirmButton: false,
-        }).then(handleclick());
+        });
       }
     } catch (error) {
       console.error("Error during registration:", error);
+      Swal.fire({
+        text: "Signed Up Failed!",
+        icon: "warning",
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false,
+      });
     }
   };
   const navigate = useNavigate();

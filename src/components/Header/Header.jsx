@@ -12,7 +12,27 @@ import { Link } from "react-router-dom";
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const [name, setName] = useState("");
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("isLoggedIn"));
+
+  const handleStorageChange = (event) => {
+    if (event.key === 'isLoggedIn') {
+      setLoggedIn(event.newValue);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []); 
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('useremail');
+    localStorage.removeItem('password');
+    setLoggedIn(false);
+  };
 
   useEffect(() => {
     const useremail = localStorage.getItem("useremail");
@@ -187,9 +207,7 @@ export function Header() {
                   <>
                     <Link
                       to="/login"
-                      onClick={() => {
-                        localStorage.setItem("isLoggedIn", false);
-                      }}
+                      onClick={handleLogout}
                     >
                       Log Out
                     </Link>
@@ -249,9 +267,7 @@ export function Header() {
                 <>
                   <Link
                     to="/login"
-                    onClick={() => {
-                      localStorage.setItem("isLoggedIn", false);
-                    }}
+                    onClick={handleLogout}
                   >
                     Log Out
                   </Link>
