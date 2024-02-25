@@ -5,16 +5,17 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import {Login}  from "./screens/Loginscreen/Login";
+import { Login } from "./screens/Loginscreen/Login";
 import Home from "./screens/Homescreen/Home";
-import {Signup}  from "./screens/Loginscreen/Signup";
-import { Dashboard} from "./screens/Dashboard/Dashboard";
+import { Signup } from "./screens/Loginscreen/Signup";
+import { Dashboard } from "./screens/Dashboard/Dashboard";
 import { News } from "./screens/News/News";
-import { Portfolio} from "./screens/Portfolio/Portfolio";
+import { Portfolio } from "./screens/Portfolio/Portfolio";
 import { Analysis } from "./screens/Analysis/Analysis";
 import { Aboutus } from "./screens/Aboutus/Aboutus";
 import { Indices } from "./screens/Indices/Indices";
 import { CuratedPortfolio } from "./screens/CuratedPortfolio/CuratedPortfolio";
+import { RiskAnalysis } from "./screens/RiskAnalysis/RiskAnalysis";
 
 function App() {
   return (
@@ -31,9 +32,10 @@ function App() {
           <Route path="/Aboutus" element={<Aboutus />} />
           <Route path="/indices" element={<Indices />} />
           <Route path="/CuratedPortfolio" element={<CuratedPortfolio />} />
+          <Route path="/risk" element={<RiskAnalysis />} />
         </Routes>
       </Router>
-     
+
     </>
   );
 }

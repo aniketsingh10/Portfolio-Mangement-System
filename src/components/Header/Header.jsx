@@ -12,25 +12,27 @@ import { Link } from "react-router-dom";
 export function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const [name, setName] = useState("");
-  const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("isLoggedIn"));
+  const [isLoggedIn, setLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
+  );
 
   const handleStorageChange = (event) => {
-    if (event.key === 'isLoggedIn') {
+    if (event.key === "isLoggedIn") {
       setLoggedIn(event.newValue);
     }
   };
 
   useEffect(() => {
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
     };
-  }, []); 
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('useremail');
-    localStorage.removeItem('password');
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("useremail");
+    localStorage.removeItem("password");
     setLoggedIn(false);
   };
 
@@ -169,9 +171,9 @@ export function Header() {
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
         {isLoggedIn ? (
-          <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+          <Link to="/risk">Risk Analysis</Link>
         ) : (
-          <Link to="/login">Curated Portfolio</Link>
+          <Link to="/login">Risk Analysis</Link>
         )}
       </Typography>
     </ul>
@@ -205,10 +207,7 @@ export function Header() {
               >
                 {isLoggedIn ? (
                   <>
-                    <Link
-                      to="/login"
-                      onClick={handleLogout}
-                    >
+                    <Link to="/login" onClick={handleLogout}>
                       Log Out
                     </Link>
                   </>
@@ -265,10 +264,7 @@ export function Header() {
             <Button fullWidth variant="gradient" size="sm" className="">
               {isLoggedIn ? (
                 <>
-                  <Link
-                    to="/login"
-                    onClick={handleLogout}
-                  >
+                  <Link to="/login" onClick={handleLogout}>
                     Log Out
                   </Link>
                 </>
