@@ -8,7 +8,7 @@ export function News() {
   useEffect(() => {
     axios
       .get(
-        "https://newsapi.org/v2/everything?q=stocks%20India&from=2024-02-3&sortBy=popularity&apiKey=af0c5205da9c4725bfb1abaadde592e3"
+        "https://newsapi.org/v2/everything?q=stocks%20India&from=2024-02-20&sortBy=popularity&apiKey=af0c5205da9c4725bfb1abaadde592e3"
       )
       .then((res) => {
         console.log(res.data.articles);
@@ -16,10 +16,8 @@ export function News() {
       })
       .catch((error) => {
         if (error.message === "Network Error") {
-          // Handle the case when there is no internet connection
-          alert("No internet connection");
+          console.error("No Internet Connection");
         } else {
-          // Handle other types of errors
           console.error("Error fetching news:", error);
         }
       });

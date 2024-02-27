@@ -92,14 +92,14 @@ export function Header() {
           <Link to="/login">Portfolio</Link>
         )}
       </Typography>
-      {/* <Typography
+      <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/dashboard">Dashboard</Link>
-      </Typography> */}
+        <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+      </Typography>
       <Typography
         as="li"
         variant="small"
@@ -136,17 +136,15 @@ export function Header() {
           <Link to="/login">News</Link>
         )}
       </Typography>
-      <Typography
+      {/* <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        {/* <a href="#" className="flex items-center">
-          About Us
-        </a> */}
+
         <Link to="/Aboutus">About Us</Link>
-      </Typography>
+      </Typography> */}
       <Typography
         as="li"
         variant="small"
