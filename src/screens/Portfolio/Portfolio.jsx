@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../../components/Header/Header";
 import LeftColumn from "../Dashboard/LeftColumn";
 import RightColumn from "../Dashboard/RightColumn";
@@ -11,6 +11,18 @@ export function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [portfolioData, setPortfolioData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("portfolioData");
+    if (storedData) {
+      try {
+        const parsedData = JSON.parse(storedData);
+        setPortfolioData(parsedData);
+      } catch (error) {
+        console.error("Error parsing storedData:", error);
+      }
+    }
+  }, []);
 
   const handleFile = async (event) => {
     const file = event.target.files[0];
@@ -31,11 +43,12 @@ export function Portfolio() {
         body: formData,
       });
 
-      // Handle the response from the backend
       if (response.ok) {
         const data = await response.json();
-        setPortfolioData(data);
-        console.log("File uploaded successfully");
+        localStorage.setItem("portfolioData", JSON.stringify(data));
+        const storedData = localStorage.getItem("portfolioData");
+        const parsedData = JSON.parse(storedData);
+        setPortfolioData(parsedData);
       } else {
         console.error("Failed to upload file");
       }
@@ -43,6 +56,13 @@ export function Portfolio() {
       console.error("Error uploading file:", error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const dataClear = () => {
+    if (localStorage.getItem("portfolioData")) {
+      localStorage.removeItem("portfolioData");
+      window.location.reload();
     }
   };
 
@@ -92,6 +112,7 @@ export function Portfolio() {
           id="fileInput"
           accept=".xls, .xlsx, .csv"
           onChange={handleFile}
+          onClick={dataClear}
           className="hidden"
         />
       </div>

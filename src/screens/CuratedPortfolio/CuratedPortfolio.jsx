@@ -97,7 +97,7 @@ export function CuratedPortfolio() {
                 className="mt-4 ease-in-out duration-500 transition delay-500"
               >
                 <div className="border mt-4"></div>
-                <div className="flex flex-col w-[60%]">
+                <div className="flex flex-col w-[80%]">
                   <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-1 sm:px-6 lg:px-8">
                       <div className="overflow-hidden">
@@ -243,16 +243,15 @@ export function CuratedPortfolio() {
                 <img src={Logo} alt="Logo" />
               </div>
               <Flex justifyContent="between" alignItems="center">
-                <Text className="font-bold text-xl">
-                  Rising Rural Demand
-                </Text>
+                <Text className="font-bold text-xl">Rising Rural Demand</Text>
 
                 <div className="bg-orange-100 px-6 py-1 rounded-lg text-orange-900 font-bold">
                   Medium Volatility
                 </div>
               </Flex>
               <Metric className="text-base mt-3">
-                Companies that stand to benefit from increasing rural consumption.
+                Companies that stand to benefit from increasing rural
+                consumption.
               </Metric>
 
               <div className="flex justify-between w-[50%] mt-3">
@@ -264,7 +263,7 @@ export function CuratedPortfolio() {
                 </div>
                 <div>
                   <p className="  rounded-lg text-primary font-bold mx-2 ">
-                    8Y CAGR 
+                    8Y CAGR
                   </p>
                   <p className=" text-green-900 font-bold mx-5">54.58 %</p>
                 </div>
@@ -283,7 +282,7 @@ export function CuratedPortfolio() {
                 className="mt-4 ease-in-out duration-500 transition delay-500"
               >
                 <div className="border mt-4"></div>
-                <div className="flex flex-col w-[60%]">
+                <div className="flex flex-col w-[80%]">
                   <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-1 sm:px-6 lg:px-8">
                       <div className="overflow-hidden">
@@ -291,10 +290,10 @@ export function CuratedPortfolio() {
                           <thead className="border-b font-lg dark:border-neutral-500">
                             <tr>
                               <th scope="col" className="px-6 py-1">
-                                Stock 
+                                Stock
                               </th>
                               <th scope="col" className="px-6 py-1">
-                                Segment 
+                                Segment
                               </th>
                               <th scope="col" className="px-6 py-1">
                                 Weightage (%)
@@ -304,10 +303,10 @@ export function CuratedPortfolio() {
                           <tbody className="text-medium text-black">
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Varun Beverages Ltd 
+                                Varun Beverages Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                                Beverages 
+                                Beverages
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 5.83%
@@ -337,7 +336,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Mahindra and Mahindra Ltd 
+                                Mahindra and Mahindra Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Tractors
@@ -359,7 +358,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Hindustan Uniliver Ltd 
+                                Hindustan Uniliver Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 FMCG
@@ -370,7 +369,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Hero MotoCorp Ltd 
+                                Hero MotoCorp Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Two Wheelers
@@ -381,7 +380,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Five-Star Business Finance Ltd 
+                                Five-Star Business Finance Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Consumer Finance
@@ -392,10 +391,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                CreditAccess Grameen Ltd 
+                                CreditAccess Grameen Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Consumer Finance
+                                Consumer Finance
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.17%
@@ -403,10 +402,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Cholamandalam Investment and Finance Company Ltd 
+                                Cholamandalam Investment and Finance Company Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Consumer Finance
+                                Consumer Finance
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.12%
@@ -414,10 +413,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Dhanuka Agritech Ltd 
+                                Dhanuka Agritech Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Seed & Fertilizers 
+                                Seed & Fertilizers
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.98%
@@ -425,10 +424,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Coromandel International Ltd 
+                                Coromandel International Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Seed & Fertilizers 
+                                Seed & Fertilizers
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.62%
@@ -436,7 +435,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Dalmia Bharat Ltd 
+                                Dalmia Bharat Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Cement
@@ -447,7 +446,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Birla Corporation Ltd 
+                                Birla Corporation Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Cement
@@ -458,10 +457,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Bajaj Electricals Ltd 
+                                Bajaj Electricals Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                                Home Electronics 
+                                Home Electronics
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 8.20%
@@ -469,7 +468,7 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                                Bajaj Projects Ltd 
+                                Bajaj Projects Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 Infrastructure Developers & Operators
@@ -504,17 +503,14 @@ export function CuratedPortfolio() {
                 <img src={Logo} alt="Logo" />
               </div>
               <Flex justifyContent="between" alignItems="center">
-                <Text className="font-bold text-xl">
-                IT Tracker
-
-                </Text>
+                <Text className="font-bold text-xl">IT Tracker</Text>
 
                 <div className="bg-red-100 px-6 py-1 rounded-lg text-red-900 font-bold">
                   High Volatility
                 </div>
               </Flex>
               <Metric className="text-base mt-3">
-              Companies to efficiently track and invest in the IT sector.
+                Companies to efficiently track and invest in the IT sector.
               </Metric>
 
               <div className="flex justify-between w-[50%] mt-3">
@@ -545,7 +541,7 @@ export function CuratedPortfolio() {
                 className="mt-4 ease-in-out duration-500 transition delay-500"
               >
                 <div className="border mt-4"></div>
-                <div className="flex flex-col w-[60%]">
+                <div className="flex flex-col w-[80%]">
                   <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-1 sm:px-6 lg:px-8">
                       <div className="overflow-hidden">
@@ -566,10 +562,10 @@ export function CuratedPortfolio() {
                           <tbody className="text-medium text-black">
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Tata Consultancy Services Ltd
+                                Tata Consultancy Services Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 14.06%
@@ -577,10 +573,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Persistent Systems Ltd
+                                Persistent Systems Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 8.13%
@@ -588,10 +584,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Mphasis Ltd
+                                Mphasis Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 9.63%
@@ -599,10 +595,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              LTIMindtree Ltd
+                                LTIMindtree Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 9.38%
@@ -611,10 +607,10 @@ export function CuratedPortfolio() {
 
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Infosys Ltd
+                                Infosys Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 10.03%
@@ -622,10 +618,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              HCL Technologies Ltd
+                                HCL Technologies Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 12.78%
@@ -633,10 +629,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Coforge Ltd
+                                Coforge Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              IT Consulting & Other Services
+                                IT Consulting & Other Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 8.44%
@@ -644,10 +640,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Oracle Financial Services Software Ltd
+                                Oracle Financial Services Software Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Software Services
+                                Software Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 16.37%
@@ -655,10 +651,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              KPIT Technologies Ltd
+                                KPIT Technologies Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Software Services
+                                Software Services
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 11.16%
@@ -690,16 +686,15 @@ export function CuratedPortfolio() {
                 <img src={Logo} alt="Logo" />
               </div>
               <Flex justifyContent="between" alignItems="center">
-                <Text className="font-bold text-xl">
-                Growth & Income
-                </Text>
+                <Text className="font-bold text-xl">Growth & Income</Text>
 
                 <div className="bg-orange-100 px-6 py-1 rounded-lg text-orange-900 font-bold">
                   Medium Volatility
                 </div>
               </Flex>
               <Metric className="text-base mt-3">
-              Efficiently managed dividend paying companies screened using Kevin Matras' criteria.
+                Efficiently managed dividend paying companies screened using
+                Kevin Matras' criteria.
               </Metric>
 
               <div className="flex justify-between w-[50%] mt-3">
@@ -711,7 +706,7 @@ export function CuratedPortfolio() {
                 </div>
                 <div>
                   <p className="  rounded-lg text-primary font-bold mx-2 ">
-                    7Y CAGR 
+                    7Y CAGR
                   </p>
                   <p className=" text-green-900 font-bold mx-5">24.86 %</p>
                 </div>
@@ -730,7 +725,7 @@ export function CuratedPortfolio() {
                 className="mt-4 ease-in-out duration-500 transition delay-500"
               >
                 <div className="border mt-4"></div>
-                <div className="flex flex-col w-[60%]">
+                <div className="flex flex-col w-[80%]">
                   <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-1 sm:px-6 lg:px-8">
                       <div className="overflow-hidden">
@@ -738,10 +733,10 @@ export function CuratedPortfolio() {
                           <thead className="border-b font-lg dark:border-neutral-500">
                             <tr>
                               <th scope="col" className="px-6 py-1">
-                                Stock 
+                                Stock
                               </th>
                               <th scope="col" className="px-6 py-1">
-                                Segment 
+                                Segment
                               </th>
                               <th scope="col" className="px-6 py-1">
                                 Weightage (%)
@@ -749,13 +744,12 @@ export function CuratedPortfolio() {
                             </tr>
                           </thead>
                           <tbody className="text-medium text-black">
-                            
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              West Coast Paper Mills Ltd
+                                West Coast Paper Mills Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Paper Products
+                                Paper Products
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -763,21 +757,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className="border-b dark:border-neutral-500">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Wonderla Holidays Ltd
+                                Wonderla Holidays Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Theme Parks & Gaming
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Torrent Power Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                              ower Transmission & Distribution
+                                Theme Parks & Gaming
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -785,21 +768,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Ramkrishna Forgings Ltd
+                                Torrent Power Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Rail
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Narayana Hrudayalaya Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Hospitals & Diagnostic Centres
+                                ower Transmission & Distribution
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -807,21 +779,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Maharashtra Seamless Ltd
+                                Ramkrishna Forgings Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Building Products - Pipes
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              LT Foods Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Packaged Foods & Meats
+                                Rail
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -829,22 +790,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Laurus Labs Ltd
+                                Narayana Hrudayalaya Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              
-                               Pharmaceuticals
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Granules India Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Pharmaceuticals
+                                Hospitals & Diagnostic Centres
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -852,21 +801,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Kirloskar Brothers Ltd
+                                Maharashtra Seamless Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Industrial Machinery
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Craftsman Automation Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Industrial Machinery
+                                Building Products - Pipes
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -874,22 +812,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              JK Lakshmi Cement Ltd
+                                LT Foods Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Cement
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                6.67%
-                              </td>
-                            </tr>
-                            <tr className=" text-base">
-                              <td className="whitespace-nowrap px-6 py-1">
-                              Gujarat State Petronet Ltd
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-1">
-                                
-                              Gas Distribution
+                                Packaged Foods & Meats
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -897,10 +823,10 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              GHCL Ltd
+                                Laurus Labs Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Commodity Chemicals 
+                                Pharmaceuticals
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -908,10 +834,76 @@ export function CuratedPortfolio() {
                             </tr>
                             <tr className=" text-base">
                               <td className="whitespace-nowrap px-6 py-1">
-                              Apar Industries Ltd
+                                Granules India Ltd
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
-                              Electrical Components & Equipments
+                                Pharmaceuticals
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Kirloskar Brothers Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Industrial Machinery
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Craftsman Automation Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Industrial Machinery
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                JK Lakshmi Cement Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Cement
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Gujarat State Petronet Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Gas Distribution
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                GHCL Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Commodity Chemicals
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                6.67%
+                              </td>
+                            </tr>
+                            <tr className=" text-base">
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Apar Industries Ltd
+                              </td>
+                              <td className="whitespace-nowrap px-6 py-1">
+                                Electrical Components & Equipments
                               </td>
                               <td className="whitespace-nowrap px-6 py-1">
                                 6.67%
@@ -926,8 +918,6 @@ export function CuratedPortfolio() {
               </div>
             </Card>
           </div>
-          
-
         </div>
       </div>
     </div>
