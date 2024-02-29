@@ -16,7 +16,6 @@ import { Header } from "../../components/Header/Header";
 import { HorizontalScroller } from "../../components/HorizontalScroller";
 import { ThreeDots } from "react-loader-spinner";
 
-
 export function Indices() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [ipoData, setIpoData] = useState(null);
@@ -33,7 +32,9 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/ipodata");
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/scrapper/ipodata"
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -56,7 +57,9 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/gainers");
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/scrapper/gainers"
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -80,7 +83,9 @@ export function Indices() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/losers");
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/scrapper/losers"
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -105,7 +110,9 @@ export function Indices() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("http://127.0.0.1:8000/scrapper/indices");
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/scrapper/indices"
+        );
         const data = await response.json();
 
         setIndicesData(data.indices);

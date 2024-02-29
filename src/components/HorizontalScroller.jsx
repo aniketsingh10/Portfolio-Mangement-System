@@ -8,7 +8,9 @@ export function HorizontalScroller() {
     const fetchData = async () => {
       try {
         // Make the API request
-        const response = await fetch("http://127.0.0.1:8000/scrapper/indices");
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/scrapper/indices"
+        );
         const data = await response.json();
 
         // Set the fetched data in the state

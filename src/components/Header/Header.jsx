@@ -42,16 +42,19 @@ export function Header() {
 
     const getName = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: useremail,
-            password: password,
-          }),
-        });
+        const response = await fetch(
+          "https://stock-portfolio-analysis-backend.onrender.com/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: useremail,
+              password: password,
+            }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();

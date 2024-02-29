@@ -38,10 +38,13 @@ export function Portfolio() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/portfolio/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://stock-portfolio-analysis-backend.onrender.com/portfolio/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

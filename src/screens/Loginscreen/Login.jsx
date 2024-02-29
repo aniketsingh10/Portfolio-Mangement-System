@@ -8,14 +8,15 @@ import Details from "./Details";
 export function Login() {
   const [useremail, setUseremail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
   const handleclick = () => {
     navigate("/");
   };
 
   const handleLogin = async () => {
-    const url = "http://127.0.0.1:8000/auth/login";
+    const url =
+      "https://stock-portfolio-analysis-backend.onrender.com/auth/login";
     const data = { email: useremail, password };
 
     try {

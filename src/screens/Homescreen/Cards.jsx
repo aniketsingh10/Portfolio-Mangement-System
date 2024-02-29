@@ -37,25 +37,33 @@ const Cards = () => {
   const [finData, setFinData] = useState([]);
   const [fmcgData, setFmcgData] = useState([]);
 
-  useAsyncEffect("http://127.0.0.1:8000/scrapper/nse", setNiftyData, "Nifty");
   useAsyncEffect(
-    "http://127.0.0.1:8000/scrapper/bse",
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/nse",
+    setNiftyData,
+    "Nifty"
+  );
+  useAsyncEffect(
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/bse",
     setSensexData,
     "Sensex BSE"
   );
   useAsyncEffect(
-    "http://127.0.0.1:8000/scrapper/bank",
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/bank",
     setBankData,
     "Nifty Bank"
   );
-  useAsyncEffect("http://127.0.0.1:8000/scrapper/it", setITData, "Nifty IT");
   useAsyncEffect(
-    "http://127.0.0.1:8000/scrapper/finance",
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/it",
+    setITData,
+    "Nifty IT"
+  );
+  useAsyncEffect(
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/finance",
     setFinData,
     "Nifty Finance"
   );
   useAsyncEffect(
-    "http://127.0.0.1:8000/scrapper/fmcg",
+    "https://stock-portfolio-analysis-backend.onrender.com/scrapper/fmcg",
     setFmcgData,
     "Nifty FMCG"
   );
