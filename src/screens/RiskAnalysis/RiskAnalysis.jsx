@@ -145,9 +145,31 @@ export function RiskAnalysis() {
                     </div>
                   </Flex>
                   <Metric className="text-base mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet nostrum odit, quidem tenetur sunt iusto eveniet
-                    doloribus perferendis assumenda voluptates?
+                    {portfolioData[0].level === "low" && (
+                      <>
+                        Low PE ratios indicate undervaluation or stable
+                        earnings, presenting lower investment risk.
+                      </>
+                    )}
+                    {portfolioData[0].level === "mid" && (
+                      <>
+                        Moderate PE ratios reflect average market valuation and
+                        moderate investment risk.
+                      </>
+                    )}
+                    {portfolioData[0].level === "high" && (
+                      <>
+                        High PE ratios could indicate overvaluation or high
+                        growth expectations, leading to increased investment
+                        risk.
+                      </>
+                    )}
+
+                    <p>
+                      There are {portfolioData[0].percentage}% stocks in your
+                      portfolio with a {portfolioData[0].level} PE score.
+                      <p className="underline text-primary italic">know more</p>
+                    </p>
                   </Metric>
                   <div
                     style={{
@@ -233,9 +255,28 @@ export function RiskAnalysis() {
                     </div>
                   </Flex>
                   <Metric className="text-base mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet nostrum odit, quidem tenetur sunt iusto eveniet
-                    doloribus perferendis assumenda voluptates?
+                    {portfolioData[1].level === "low" && (
+                      <>Low debt-to-equity indicates financial stability.</>
+                    )}
+                    {portfolioData[1].level === "mid" && (
+                      <>
+                        Moderate debt-to-equity signifies balanced leverage and
+                        manageable risk.
+                      </>
+                    )}
+                    {portfolioData[1].level === "high" && (
+                      <>
+                        High debt-to-equity suggests high financial leverage and
+                        increased risk to buy stocks.
+                      </>
+                    )}
+
+                    <p>
+                      There are {portfolioData[1].percentage}% stocks in your
+                      portfolio with a {portfolioData[1].level} Debt to Equity
+                      score.
+                      <p className="underline text-primary italic">know more</p>
+                    </p>
                   </Metric>
                   <div
                     style={{
@@ -325,9 +366,31 @@ export function RiskAnalysis() {
                     </div>
                   </Flex>
                   <Metric className="text-base mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet nostrum odit, quidem tenetur sunt iusto eveniet
-                    doloribus perferendis assumenda voluptates?
+                    {portfolioData[3].level === "low" && (
+                      <>
+                        Steady, moderate profit growth signifies stable business
+                        performance and lower risk.
+                      </>
+                    )}
+                    {portfolioData[3].level === "mid" && (
+                      <>
+                        Moderate profit growth reflects average market
+                        conditions and moderate business risk.
+                      </>
+                    )}
+                    {portfolioData[3].level === "high" && (
+                      <>
+                        Volatile or declining profit growth indicates market
+                        uncertainty or operational challenges, presenting higher
+                        risk.
+                      </>
+                    )}
+
+                    <p>
+                      There are {portfolioData[3].percentage}% stocks in your
+                      portfolio with a {portfolioData[3].level} Profit Growth.
+                      <p className="underline text-primary italic">know more</p>
+                    </p>
                   </Metric>
                   <div
                     style={{
@@ -415,9 +478,31 @@ export function RiskAnalysis() {
                     </div>
                   </Flex>
                   <Metric className="text-base mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet nostrum odit, quidem tenetur sunt iusto eveniet
-                    doloribus perferendis assumenda voluptates?
+                    {portfolioData[4].level === "low" && (
+                      <>
+                        Consistent, moderate sales growth suggests stable
+                        business performance and lower risk.
+                      </>
+                    )}
+                    {portfolioData[4].level === "mid" && (
+                      <>
+                        Moderate sales growth indicates average market demand
+                        and moderate business risk.
+                      </>
+                    )}
+                    {portfolioData[4].level === "high" && (
+                      <>
+                        Rapid or erratic sales growth may indicate market
+                        volatility or unsustainable business practices, posing
+                        higher risk.
+                      </>
+                    )}
+
+                    <p>
+                      There are {portfolioData[4].percentage}% stocks in your
+                      portfolio with a {portfolioData[4].level} Sales Growth.
+                      <p className="underline text-primary italic">know more</p>
+                    </p>
                   </Metric>
                   <div
                     style={{
@@ -504,9 +589,30 @@ export function RiskAnalysis() {
                   </div>
                 </Flex>
                 <Metric className="text-base mt-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                  nostrum odit, quidem tenetur sunt iusto eveniet doloribus
-                  perferendis assumenda voluptates?
+                  {portfolioData[2].level === "low" && (
+                    <>
+                      Low beta stocks tend to be less volatile and are perceived
+                      as lower risk investments.
+                    </>
+                  )}
+                  {portfolioData[2].level === "mid" && (
+                    <>
+                      Moderate beta indicates average market volatility and
+                      moderate investment risk.
+                    </>
+                  )}
+                  {portfolioData[2].level === "high" && (
+                    <>
+                      High beta stocks are more volatile, presenting higher
+                      investment risk but potentially higher returns
+                    </>
+                  )}
+
+                  <p>
+                    There are {portfolioData[2].percentage}% stocks in your
+                    portfolio with a {portfolioData[2].level} Beta score.
+                    <p className="underline text-primary italic">know more</p>
+                  </p>
                 </Metric>
                 <div
                   style={{
