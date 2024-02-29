@@ -95,14 +95,20 @@ export function Header() {
           <Link to="/login">Portfolio</Link>
         )}
       </Typography>
+
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        <Link to="/CuratedPortfolio">Curated Portfolio</Link>
+        {isLoggedIn ? (
+          <Link to="/risk">Health Monitoring</Link>
+        ) : (
+          <Link to="/login">Health Monitoring</Link>
+        )}
       </Typography>
+
       <Typography
         as="li"
         variant="small"
@@ -148,22 +154,19 @@ export function Header() {
 
         <Link to="/Aboutus">About Us</Link>
       </Typography> */}
-      <Typography
+      {/* <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        {/* <a href="#" className="flex items-center">
-          Github
-        </a> */}
         <Link
           to="https://github.com/aniketsingh10/Portfolio-Mangement-System"
           target="_blank"
         >
           Github
         </Link>
-      </Typography>
+      </Typography> */}
 
       <Typography
         as="li"
@@ -171,12 +174,10 @@ export function Header() {
         color="blue-gray"
         className="p-1 font-normal hover:scale-105 duration-300 ease-in-out"
       >
-        {isLoggedIn ? (
-          <Link to="/risk">Risk Analysis</Link>
-        ) : (
-          <Link to="/login">Risk Analysis</Link>
-        )}
+        <Link to="/CuratedPortfolio">Curated Portfolio</Link>
       </Typography>
+
+
     </ul>
   );
 

@@ -33,8 +33,7 @@ export function CuratedPortfolio() {
               color: "rgb(59 130 246)",
             }}
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,
-            perspiciatis. Cumque eaque velit in voluptate.
+            
           </div>
         </div>
 

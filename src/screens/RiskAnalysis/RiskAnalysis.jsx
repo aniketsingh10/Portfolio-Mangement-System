@@ -11,6 +11,7 @@ export function RiskAnalysis() {
   const [isHiddenVisibleThree, setIsHiddenVisibleThree] = useState(false);
   const [isHiddenVisibleFour, setIsHiddenVisibleFour] = useState(false);
   const [isHiddenVisibleFive, setIsHiddenVisibleFive] = useState(false);
+  const [rating, setRating] = useState(null);
 
   const handleCardClickOne = () => {
     setIsHiddenVisibleOne(!isHiddenVisibleOne);
@@ -34,6 +35,7 @@ export function RiskAnalysis() {
       try {
         const parsedData = JSON.parse(storedData);
         setPortfolioData(parsedData.data.risk_analysis);
+        setRating(parsedData.data.risk_rating);
       } catch (error) {
         console.error("Error parsing storedData:", error);
       }
@@ -46,7 +48,7 @@ export function RiskAnalysis() {
 
       <div className="max-w-[90%] w-full mx-auto text-center flex flex-col justify-center pt-10 mb-20">
         <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-          PMS Risk Analysis
+          PMS Health Analysis
         </p>
 
         <div className="flex text-center mx-auto">
@@ -56,42 +58,43 @@ export function RiskAnalysis() {
               color: "rgb(59 130 246)",
             }}
           >
-            Analyze your risk with our proven strategic model over various
+            Analyze your health with our proven strategic model over various
             aspects.
           </div>
         </div>
+        {rating?
         <div className="flex text-center mx-auto mt-4  rounded-lg">
           <ReactSpeedometer
             width={500}
             needleHeightRatio={0.7}
-            value={777}
-            currentValueText="Portfolio Performance"
+            value={1000-rating}
+            currentValueText="Portfolio Health"
             customSegmentLabels={[
               {
                 text: "Very Bad",
                 position: "INSIDE",
-                color: "#555",
+                color: "rgb(0,0,0)",
               },
               {
                 text: "Bad",
                 position: "INSIDE",
-                color: "#555",
+                color: "rgb(0,0,0)",
               },
               {
                 text: "Ok",
                 position: "INSIDE",
-                color: "#555",
-                fontSize: "19px",
+                color: "rgb(0,0,0)",
+                font:"17"
               },
               {
                 text: "Good",
                 position: "INSIDE",
-                color: "#555",
+                color: "rgb(0,0,0)",
               },
               {
                 text: "Very Good",
                 position: "INSIDE",
-                color: "#555",
+                color: "rgb(0,0,0)",
               },
             ]}
             ringWidth={47}
@@ -100,7 +103,7 @@ export function RiskAnalysis() {
             needleColor={"#90f2ff"}
             textColor={"rgba(0,0,0,1)"}
           />
-        </div>
+        </div>:(null)}
         {portfolioData ? (
           <div className="mt-4">
             <div className="flex flex-col lg:flex-row gap-8 mt-4">
@@ -347,17 +350,17 @@ export function RiskAnalysis() {
                       className={`px-6 py-1 rounded-lg font-bold capitalize 
                       ${
                         portfolioData[3].level === "low"
-                          ? "bg-red-100"
+                          ? "bg-green-100"
                           : portfolioData[3].level === "mid"
                           ? "bg-orange-100"
-                          : "bg-green-100"
+                          : "bg-red-100"
                       }
                       ${
                         portfolioData[3].level === "low"
-                          ? "text-red-900"
+                          ? "text-green-900"
                           : portfolioData[3].level === "mid"
                           ? "text-orange-900"
-                          : "text-green-900"
+                          : "text-red-900"
                       }
                       
                       `}
@@ -388,7 +391,7 @@ export function RiskAnalysis() {
 
                     <p>
                       There are {portfolioData[3].percentage}% stocks in your
-                      portfolio with a {portfolioData[3].level} Profit Growth.
+                      portfolio with a {portfolioData[3].level} risk in Profit Growth.
                       <p className="underline text-primary italic">know more</p>
                     </p>
                   </Metric>
