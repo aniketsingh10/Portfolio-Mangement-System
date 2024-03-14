@@ -23,6 +23,7 @@ const TableComponent = ({ data }) => {
             <TableHeaderCell>Shares</TableHeaderCell>
             <TableHeaderCell>Average Price</TableHeaderCell>
             <TableHeaderCell>Profit/Loss</TableHeaderCell>
+            <TableHeaderCell>Rating</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,12 +38,23 @@ const TableComponent = ({ data }) => {
               </TableCell>
               <TableCell>
                 {item.profit_loss_percentage > 0 ? (
-                  <Badge className="bg-green-100 py-1 px-2 rounded-lg mx-3">
+                  <Badge className="bg-green-100  rounded-lg py-1 px-4">
                     {item.profit_loss_percentage} %
                   </Badge>
                 ) : (
-                  <Badge className="bg-red-100 py-1 px-2 rounded-lg mx-3">
+                  <Badge className="bg-red-100  rounded-lg py-1 px-4">
                     {item.profit_loss_percentage} %
+                  </Badge>
+                )}
+              </TableCell>
+              <TableCell>
+                {item.profit_loss_percentage > 0 ? (
+                  <Badge className="bg-green-100 py-1 px-4 rounded-lg ">
+                    Hold
+                  </Badge>
+                ) : (
+                  <Badge className="bg-red-100 py-1 px-4 rounded-lg ">
+                    Sell
                   </Badge>
                 )}
               </TableCell>
