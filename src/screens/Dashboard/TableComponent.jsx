@@ -48,13 +48,19 @@ const TableComponent = ({ data }) => {
                 )}
               </TableCell>
               <TableCell>
-                {item.profit_loss_percentage > 0 ? (
-                  <Badge className="bg-green-100 py-1 px-4 rounded-lg ">
+                {item.profit_loss_percentage >= -15 &&
+                item.profit_loss_percentage <= 15 ? (
+                  <Badge className="bg-orange-100 py-1 px-5 rounded-lg ">
                     Hold
                   </Badge>
-                ) : (
-                  <Badge className="bg-red-100 py-1 px-4 rounded-lg ">
+                ) : item.profit_loss_percentage > 50 ||
+                  item.profit_loss_percentage < -30 ? (
+                  <Badge className="bg-red-100 py-1 px-5 rounded-lg ">
                     Sell
+                  </Badge>
+                ) : (
+                  <Badge className="bg-green-100 py-1 px-5 rounded-lg ">
+                    Buy
                   </Badge>
                 )}
               </TableCell>

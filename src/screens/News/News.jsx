@@ -8,7 +8,7 @@ export function News() {
   useEffect(() => {
     axios
       .get(
-        "https://newsapi.org/v2/everything?q=stocks%20India&from=2024-02-25&sortBy=popularity&apiKey=af0c5205da9c4725bfb1abaadde592e3"
+        "https://newsapi.org/v2/everything?q=stocks%20India&from=2024-04-01&sortBy=popularity&apiKey=af0c5205da9c4725bfb1abaadde592e3"
       )
       .then((res) => {
         console.log(res.data.articles);

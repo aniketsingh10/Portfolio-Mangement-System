@@ -4,47 +4,65 @@ import { Doughnut, Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 Chart.register(ArcElement, Tooltip, Legend);
 
-const SalesItem = ({data}) => {
+const SalesItem = ({ data }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const sectordata = {
-    labels: data?.data?.sector_percentage.map(entry => entry.sector),
+    labels: data?.data?.sector_percentage.map((entry) => entry.sector),
     datasets: [
       {
         label: " Allocation % ",
-        data: data?.data?.sector_percentage.map(entry => entry.percentage), // Add your data values here
+        data: data?.data?.sector_percentage.map((entry) => entry.percentage), // Add your data values here
         backgroundColor: [
-          "rgb(191 219 254)",
-          "rgb(147 197 253)",
-          "rgb(96 165 250)",
-          "rgb(59 130 246)",
-        ], // Add your desired colors
+          "rgb(0, 128, 0)", // Green
+          "rgb(173, 216, 230)", // Light Blue
+          "rgb(148, 0, 211)", // Violet
+          "rgb(0, 0, 139)", // Dark Blue
+          "rgb(255, 255, 0)", // Yellow
+          "rgb(255, 165, 0)", // Orange
+          "rgb(128, 128, 128)", // Grey
+          "rgb(191, 219, 254)", // Light Blue (Alternative)
+        ],
         hoverBackgroundColor: [
-          "rgb(191 219 254)",
-          "rgb(147 197 253)",
-          "rgb(96 165 250)",
-          "rgb(59 130 246)",
+          "rgb(0, 128, 0)", // Green
+          "rgb(173, 216, 230)", // Light Blue
+          "rgb(148, 0, 211)", // Violet
+          "rgb(0, 0, 139)", // Dark Blue
+          "rgb(255, 255, 0)", // Yellow
+          "rgb(255, 165, 0)", // Orange
+          "rgb(128, 128, 128)", // Grey
+          "rgb(191, 219, 254)", // Light Blue (Alternative)
         ],
       },
     ],
   };
 
   const marketdata = {
-    labels: data?.data?.market_cap_percentage.map(entry => entry.market_cap),
+    labels: data?.data?.market_cap_percentage.map((entry) => entry.market_cap),
     datasets: [
       {
         label: " Allocation % ",
-        data: data?.data?.market_cap_percentage.map(entry => entry.percentage), // Add your data values here
+        data: data?.data?.market_cap_percentage.map(
+          (entry) => entry.percentage
+        ), // Add your data values here
         backgroundColor: [
-          "rgb(191 219 254)",
-          "rgb(147 197 253)",
-          "rgb(96 165 250)",
-          "rgb(59 130 246)",
-        ], // Add your desired colors
+          "rgb(0, 128, 0)", // Green
+          "rgb(173, 216, 230)", // Light Blue
+          "rgb(148, 0, 211)", // Violet
+          "rgb(0, 0, 139)", // Dark Blue
+          "rgb(255, 255, 0)", // Yellow
+          "rgb(255, 165, 0)", // Orange
+          "rgb(128, 128, 128)", // Grey
+          "rgb(191, 219, 254)", // Light Blue (Alternative)
+        ],
         hoverBackgroundColor: [
-          "rgb(191 219 254)",
-          "rgb(147 197 253)",
-          "rgb(96 165 250)",
-          "rgb(59 130 246)",
+          "rgb(0, 128, 0)", // Green
+          "rgb(173, 216, 230)", // Light Blue
+          "rgb(148, 0, 211)", // Violet
+          "rgb(0, 0, 139)", // Dark Blue
+          "rgb(255, 255, 0)", // Yellow
+          "rgb(255, 165, 0)", // Orange
+          "rgb(128, 128, 128)", // Grey
+          "rgb(191, 219, 254)", // Light Blue (Alternative)
         ],
       },
     ],
@@ -56,10 +74,10 @@ const SalesItem = ({data}) => {
         <Title>Diversification</Title>
         <TabGroup index={selectedIndex} onIndexChange={setSelectedIndex}>
           <TabList variant="solid">
-            <Tab className="bg-blue-200 px-4  rounded-lg hover:scale-105">
+            <Tab className="bg-blue-100 px-4  rounded-lg hover:scale-105">
               Sector
             </Tab>
-            <Tab className="bg-blue-200 px-4  rounded-lg ml-1 hover:scale-105">
+            <Tab className="bg-blue-100 px-4  rounded-lg ml-1 hover:scale-105">
               Market Cap.
             </Tab>
           </TabList>

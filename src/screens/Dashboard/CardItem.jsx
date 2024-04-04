@@ -28,21 +28,6 @@ const CardItem = ({ data }) => {
       >
         <Flex justifyContent="between" alignItems="center">
           <Text className="">Current</Text>
-          {percentageChange > 0 ? (
-            <BadgeDelta
-              deltaType="moderateIncrease"
-              className="bg-green-100 p-1 rounded-lg px-2"
-            >
-              + {percentageChange.toFixed(2)} %
-            </BadgeDelta>
-          ) : (
-            <BadgeDelta
-              deltaType="moderateIncrease"
-              className="bg-red-100 p-1 rounded-lg px-2"
-            >
-              - {percentageChange.toFixed(2)} %
-            </BadgeDelta>
-          )}
         </Flex>
         <Metric className="text-lg">
           ₹ {data?.data?.total_invested + data?.data?.profit_loss}
@@ -55,21 +40,6 @@ const CardItem = ({ data }) => {
       >
         <Flex justifyContent="between" alignItems="center">
           <Text className="">Invested</Text>
-          {percentageChange > 0 ? (
-            <BadgeDelta
-              deltaType="moderateIncrease"
-              className="bg-green-100 p-1 rounded-lg px-2"
-            >
-              + {percentageChange.toFixed(2)} %
-            </BadgeDelta>
-          ) : (
-            <BadgeDelta
-              deltaType="moderateIncrease"
-              className="bg-red-100 p-1 rounded-lg px-2"
-            >
-              - {percentageChange.toFixed(2)} %
-            </BadgeDelta>
-          )}
         </Flex>
         <Metric className="text-lg">₹ {data?.data?.total_invested}</Metric>
       </Card>
